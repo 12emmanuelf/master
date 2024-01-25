@@ -13,19 +13,16 @@ return new class extends Migration
     {
         Schema::create('colis', function (Blueprint $table) {
             $table->id();
-            $table->string('expedition');
+            $table->string('destinataire');
             $table->string('adresse');
-            $table->string('ville');
-            $table->string('code_postale');
-            $table->string('n_colis');
-            $table->string('poids');
+            $table->string('telephone');
             $table->string('reference');
-            $table->string('expediteur');
-            $table->foreignId('coursiers_id')->constrained();
+            $table->string('nomC');
+            // $table->foreignId('coursiers_id')->constrained();
             $table->timestamps();
         });
 
-        Schema::enableForeignKeyConstraints();
+        // Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -33,10 +30,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('colis', function (Blueprint $table) {
-            $table->foreignId('coursiers_id');
+        // Schema::table('colis', function (Blueprint $table) {
+        //     $table->foreignId('coursiers_id');
 
-        });
+        // });
         Schema::dropIfExists('colis');
     }
 };

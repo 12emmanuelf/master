@@ -317,7 +317,6 @@
             <div>
                 @yield('Cou1')
             </div>
-                <h1>Bonjour</h1>
             <div>
                 @yield('Cou2')
             </div>

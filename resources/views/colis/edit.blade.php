@@ -4,7 +4,7 @@
 
 
 
-    <h1>Modifier Client</h1>
+    <h1>Modifier Colis</h1>
 
 
     @if ($errors->any())
@@ -28,8 +28,8 @@
 
         <div class="form-group mb-3">
 
-            <label for="expedition" class="form-label">Expédition à</label>
-            <input type="text" class="form-control" id="expedition" name="expedition" value="{{ $colis->expedition}}">
+            <label for="destinataire" class="form-label">Expédition à</label>
+            <input type="text" class="form-control" id="expedition" name="expedition" value="{{ $colis->destinataire}}">
         </div>
 
         <div class="form-group mb-3">
@@ -40,42 +40,19 @@
 
         <div class="form-group mb-3">
 
-            <label for="ville" class="form-label">Ville</label>
-            <input type="text" class="form-control" id="ville" name="ville" value="{{ $colis->ville}}">
+            <label for="telephone"  style="color: #007bff;">Telephone:</label>
+            <input type="phone" pattern="[0-9]{10}" title="Veuillez entrer un numéro de 10 chiffres" class="form-control" id="telephone" placeholder="Téléphone" name="telephone"   value="{{ $colis->telephone}}">
+
         </div>
 
-
-        <div class="form-group mb-3">
-
-            <label for="code_postal" class="form-label">Code Postal</label>
-                <input type="text" class="form-control" id="code_postal" name="code_postal" value="{{ $colis->code_postale}}">
-        </div>
-
-        <div class="form-group mb-3">
-            <label for="n_colis" class="form-label">N° Colis</label>
-            <input type="text" class="form-control" id="n_colis" name="n_colis" value="{{ $colis->n_colis}}">
-        </div>
-        <div class="form-group mb-3">
-
-            <label for="poids" class="form-label">Poids (kg)</label>
-                <input type="text" class="form-control" id="poids" name="poids" value="{{ $colis->poids}}">
-        </div>
-        <div class="form-group mb-3">
-
-            <label for="date" class="form-label">Date</label>
-            <input type="date" class="form-control" id="date" name="date" value="{{ $colis->poids}}">
-        </div>
-
-        <div class="form-group mb-3">
-
-            <label for="reference" class="form-label">Référence</label>
+            <label for="reference" class="form-label" style="color: #007bff;">Référence</label>
             <input type="text" class="form-control" id="reference" name="reference" value="{{ $colis->reference}}">
         </div>
 
         <div class="form-group mb-3">
 
-            <label for="expediteur" class="form-label">Expéditeur</label>
-            <input type="text" class="form-control" id="expediteur" name="expediteur"  value="{{ $colis->expediteur}}">
+            <label for="nomC" class="form-label" style="color: #007bff;">Nom du coursier</label>
+            <input type="text" class="form-control" id="nomC" name="expediteur"  value="{{ $colis->nomC}}">
         </div>
 
         <button type="submit" class="btn btn-primary">Enregistrer</button>

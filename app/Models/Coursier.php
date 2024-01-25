@@ -32,11 +32,11 @@ class Coursier extends Model
 
     }
 
-    public function colis()
-    {
-        return $this->hasmany(colis::class);
+    // public function colis()
+    // {
+    //     return $this->hasmany(colis::class);
 
-    }
+    // }
 
     public function bordereau()
     {

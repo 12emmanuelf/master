@@ -8,7 +8,7 @@
 
         <tr>
             <th>Expedition A :</th>
-            <td>{{ $colis->expedition}}</td>
+            <td>{{ $colis->dsetinataire}}</td>
         </tr>
 
         <tr>
@@ -20,24 +20,11 @@
 
         <tr>
 
-            <th>Ville:</th>
-            <td>{{ $colis->ville }}</td>
+            <th>Telephone:</th>
+            <td>{{ $colis->telephone }}</td>
 
         </tr>
 
-        <tr>
-
-            <th>Code postale:</th>
-            <td>{{ $colis->code_postale }}</td>
-
-        </tr>
-
-        <tr>
-
-            <th>Poids KG:</th>
-            <td>{{ $colis->poids }}</td>
-
-        </tr>
 
         <tr>
 
@@ -48,8 +35,8 @@
 
         <tr>
 
-            <th>Expéditeur:</th>
-            <td>{{ $colis->expediteur }}</td>
+            <th>Nom du coursier:</th>
+            <td>{{ $colis->nomC }}</td>
 
         </tr>
 

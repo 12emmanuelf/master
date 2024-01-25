@@ -9,18 +9,15 @@ class Colis extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'expedition',
+        'destinataire',
         'adresse',
-        'ville',
-        'code_postale',
-        'n_colis',
-        'poids',
+        'telephpne',
         'reference',
-        'expediteur',
+        'nomC',
     ];
 
-    public function Coursier()
-    {
-        return $this->belongsto(Coursier::class, );
-    }
+    // public function Coursier()
+    // {
+    //     return $this->belongsto(Coursier::class, );
+    // }
 }
