@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ColisController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\MasterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CoursierController;
 
@@ -25,9 +26,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/Master', function () {
-    return view('Master');
-})->middleware(['auth', 'verified'])->name('master');
+Route::middleware('auth','verified')->group(function () {
+    Route::get('/Master', [MasterController::class, 'index'])->name('master');
+
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

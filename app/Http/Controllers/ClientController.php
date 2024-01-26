@@ -90,4 +90,5 @@ class ClientController extends Controller
 
         return redirect('/client.index')->with('success', 'Client supprimé avec succès');
     }
+
 }
