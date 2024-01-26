@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Commune;
 use App\Models\Client;
+use App\Models\Commune;
 use Illuminate\Http\Request;
+use App\Events\ClientCreated;
 
 class ClientController extends Controller
 {
@@ -38,11 +39,11 @@ class ClientController extends Controller
             'prenom' => $request->get('prenom'),
             'telephone' => $request->get('telephone'),
             'email' => $request->get('email'),
-            'commune_id' => $commune->id,
+            'communes_id' => $commune->id,
         ]);
 
         $client->save();
-
+        event(new ClientCreated($client));
         return redirect('/client.index')->with('success', 'Client ajouté avec succès');
     }
 
@@ -67,7 +68,7 @@ class ClientController extends Controller
             'prenom' => 'required',
             'telephone' => 'required',
             'email' => 'required',
-            'commune_id' => 'required',
+            'communes_id' => 'required',
         ]);
 
         $client = Client::findOrFail($id);
@@ -75,7 +76,7 @@ class ClientController extends Controller
         $client->prenom = $request->get('prenom');
         $client->telephone = $request->get('telephone');
         $client->email = $request->get('email');
-        $client->commune_id = $request->get('commune_id');
+        $client->communes_id = $request->get('communes_id');
 
         $client->update();
 

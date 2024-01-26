@@ -50,7 +50,7 @@
 
     <div class="form-group mb-3">
         <label for="commune" style="color: #007bff;">Commune:</label>
-        <input type="commune" class="form-control" id="commune" placeholder="commune" name="commune">
+        <input type="text" class="form-control" id="communes" placeholder="Nom de la commune" name="commune">
     </div>
 
     <button type="submit" class="btn btn-primary">Enregister</button>
