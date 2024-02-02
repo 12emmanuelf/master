@@ -50,7 +50,7 @@
                         <td>{{ $loop->iteration}}</td>
                         <td>{{ $item->type }}</td>
                         <td>{{ $item->description}}</td>
-                        <td>{{ $item->client}}</td>
+                        <td>{{ $item->client_id}}</td>
                         <td>
 
                             <form action="{{ url('contrat/'. $item->id) }}" method="POST">
