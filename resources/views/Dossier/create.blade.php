@@ -1,6 +1,6 @@
 
-@extends("Dashboards.layout.Colis")
-@section("Co2")
+@extends("Dashboards.layout.Dossiers")
+@section("Do2")
 <div style="margin-left: 3%; font-weight: bold;">
 
 

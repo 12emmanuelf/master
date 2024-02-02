@@ -1,6 +1,6 @@
-@extends('Dashboards.layout.Colis')
+@extends('Dashboards.layout.Dossiers')
 @section('Co1')
-<div class="container-fluid" id="container-wrapper">
+{{-- <div class="container-fluid" id="container-wrapper">
 
 
     <div>
@@ -86,7 +86,8 @@
 
 
 
-  </div>
+  </div> --}}
+  <h1> Dossier en attentent </h1>
 
 
 @endsection

@@ -1,5 +1,5 @@
-@include('Dashboards.layout.Colis')
-@section('Co4')
+@include('Dashboards.layout.Dossiers')
+@section('Do4')
 
     <h1>Gestion des Clients</h1>
 

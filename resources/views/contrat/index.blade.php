@@ -1,6 +1,6 @@
-@extends('Dashboards.layout.Clients')
+@extends('Dashboards.layout.Contrats')
 
-@section('Cli1')
+@section('Con1')
 <div class="container-fluid" id="container-wrapper">
 
 
@@ -9,12 +9,12 @@
 
                 <div class="col-lg-11">
 
-                    <h1 style="font-weight: bold;">Gestion des Clients</h1>
+                    <h1 style="font-weight: bold;">Gestion des Contrats</h1>
 
                 </div>
 
                 <div class="col-lg-1">
-                    <a class="btn btn-success" href="{{ url('client/create') }}">Ajouter</a>
+                    <a class="btn btn-success" href="{{ url('contrat/create') }}">Ajouter</a>
                 </div>
 
             </div>
@@ -26,7 +26,7 @@
                     {{ session('success') }}
                     <script>
                         setTimeout(function(){
-                            window.location.href = '{{ url('/client.index') }}';
+                            window.location.href = '{{ url('/contrat.index') }}';
                         }, {{ session('delay', 3) * 1000 }});
                     </script>
                 </div>
@@ -37,11 +37,9 @@
                 <tr>
 
                     <th>No</th>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Telephone</th>
-                    <th>Email</th>
-                    <th>Zone</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Client</th>
                     <th>Actions</th>
 
                 </tr>
@@ -50,22 +48,20 @@
 
                     <tr>
                         <td>{{ $loop->iteration}}</td>
-                        <td>{{ $item->nom }}</td>
-                        <td>{{ $item->prenom}}</td>
-                        <td>{{ $item->telephone}}</td>
-                        <td>{{ $item->email }}</td>
-                        <td>{{ $item->zone_id }}</td>
+                        <td>{{ $item->type }}</td>
+                        <td>{{ $item->description}}</td>
+                        <td>{{ $item->client}}</td>
                         <td>
 
-                            <form action="{{ url('client/'. $item->id) }}" method="POST">
+                            <form action="{{ url('contrat/'. $item->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 
-                                <a class="btn btn-info" href="{{ url('client/'. $item->id) }}">
+                                <a class="btn btn-info" href="{{ url('contrat/'. $item->id) }}">
                                     <i class="fas fa-eye"></i> Voir
                                 </a>
 
-                                <a class="btn btn-primary" href="{{ url('client/'. $item->id .'/edit') }}">
+                                <a class="btn btn-primary" href="{{ url('contrat/'. $item->id .'/edit') }}">
                                     <i class="fas fa-edit"></i> Éditer
                                 </a>
 

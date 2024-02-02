@@ -1,41 +1,28 @@
 
-@extends('Dashboards.layout.Clients')
-@section('Cli4')
+@extends('Dashboards.layout.Contrats')
+@section('Con4')
 
-    <h1 class="text-center">CLIENT</h1>
+    <h1 class="text-center">CONTRAT</h1>
 
 <div class="col-md-10 mx-auto">
     <table class="table table-bordered">
 
         <tr>
-            <th style="color: #007bff;">Nom :</th>
-            <td>{{ $client->nom }}</td>
+            <th style="color: #007bff;">Type :</th>
+            <td>{{ $contrat->type }}</td>
         </tr>
 
         <tr>
 
-            <th style="color: #007bff;">Prenom:</th>
-            <td>{{ $client->prenom }}</td>
+            <th style="color: #007bff;">Description:</th>
+            <td>{{ $contrat->description }}</td>
 
         </tr>
 
-        <tr>
-
-            <th style="color: #007bff;">Telephone:</th>
-            <td>{{ $client->telephone }}</td>
-
-        </tr>
 
         <tr>
-
-            <th style="color: #007bff;">Email:</th>
-            <td>{{ $client->email }}</td>
-
-        </tr>
-
-        <tr>
-            <th style="color: #007bff;">Zone:</th>
-            <td>{{ $client->zone_id }}</td>
+            <th style="color: #007bff;">Client:</th>
+            <td>{{ $contrat->client_id }}</td>
         </tr>
 
 

@@ -1,12 +1,12 @@
 
-@extends("Dashboards.layout.Clients")
+@extends("Dashboards.layout.Contrats")
 
-@section("Cli3")
+@section("Con3")
 <div>
 
 
 
-    <h1 class="text-center">MODIFIER LE CLIENT </h1>
+    <h1 class="text-center">MODIFIER LE CONTRAT </h1>
 
 
     @if ($errors->any())
@@ -23,46 +23,29 @@
 
     @endif
    <div class="col-md-10 mx-auto">
-            <form method="post" action="{{ route('clients.update', ['id' => $client->id]) }}" >
+            <form method="post" action="{{ route('contrat.update', ['id' => $contrat->id]) }}" >
                 @method('PATCH')
                 @csrf
 
 
                 <div class="form-group mb-3">
 
-                    <label for="nom"  style="color: #007bff;">Nom:</label>
-                    <input type="text" class="form-control" id="nom" placeholder="Entrer Nom" name="nom" value="{{ $client->nom }}">
+                    <label for="type"  style="color: #007bff;">Type:</label>
+                    <input type="text" class="form-control" id="Type" placeholder="Entrer le type" name="nom" value="{{ $contrat->type }}">
 
                 </div>
 
                 <div class="form-group mb-3">
-
-                    <label for="prenom"  style="color: #007bff;">Prenom:</label>
-                    <input type="text" class="form-control" id="prenom" placeholder="Entrer une prenom" name="prenom" value="{{ $client->prenom }}">
-
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" rows="3"></textarea>
                 </div>
 
                 <div class="form-group mb-3">
-
-                    <label for="telephone"  style="color: #007bff;">Telephone:</label>
-                    <input type="phone" pattern="[0-9]{10}" title="Veuillez entrer un numéro de 10 chiffres" class="form-control" id="telephone" placeholder="Téléphone" name="telephone"   value="{{ $client->telephone}}">
-
-                </div>
-
-
-                <div class="form-group mb-3">
-
-                    <label for="email"  style="color: #007bff;">Email:</label>
-                    <input type="text" class="form-control" id="email" placeholder="Entrer Email" name="email" value="{{ $client->email }}">
-
-                </div>
-
-                <div class="form-group mb-3">
-                    <label for="zone_id" style="color: #007bff;">Zone :</label>
-                    <select class="form-control" id="zone_id" name="zone_id" >
-                        <option >Sélectionnez une Zone</option>
-                        @foreach($zones as $zone)
-                            <option value="{{ $zone->id }}" @if(old('zone_id') == $zone->id) selected @endif>{{ $zone->nom }}</option>
+                    <label for="client_id" style="color: #007bff;">Client :</label>
+                    <select class="form-control" id="client_id" name="client_id" >
+                        <option >Sélectionnez une client</option>
+                        @foreach($clients as $client)
+                            <option value="{{ $client->id }}" @if(old('client_id') == $client->id) selected @endif>{{ $client->nom }}</option>
                         @endforeach
                     </select>
                 </div>

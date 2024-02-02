@@ -1,5 +1,5 @@
 @extends("Dashboards.layout.Colis")
-@section("Co3")
+@section("Col3")
 <div class="container mt-5">
 
 

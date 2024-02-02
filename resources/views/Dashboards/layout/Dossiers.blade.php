@@ -59,8 +59,8 @@
           </a>
 
           <a class="collapse-item" href="{{route('Dossier.index')}}">
-            <i i class="fas fa-file-dossier" style="color: #007bff;"></i>
-            Dosiier
+            <i class="fas fa-folder" style="color: #007bff;"></i>
+            Dossier
           </a>
 
           <a class="collapse-item" href="coursier.index">
@@ -334,16 +334,16 @@
                 {{-- @yield('Cli1')
                 <h1>bonjour</h1> --}}
             <div>
-                @yield('Cli1')
+                @yield('Do1')
             </div>
             <div>
-                @yield('Cli2')
+                @yield('Do2')
             </div>
             <div>
-                @yield('Cli3')
+                @yield('Do3')
             </div>
             <div>
-                @yield('Cli4')
+                @yield('Do4')
             </div>
 
 

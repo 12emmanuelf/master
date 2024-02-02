@@ -1,5 +1,5 @@
 @extends('Dashboards.layout.Colis')
-@section('Co1')
+@section('Col1')
 <div class="container-fluid" id="container-wrapper">
 
 

@@ -151,14 +151,28 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/dossier.index',[DossierController::class,'index'])->name('dossier.index');
-    Route::get('/dossier/create', [DossierController::class,'create'])->name('dossier.create');
-    Route::get('/dossier/{id}', [DossierController::class,'show'])->name('dossier.show');
-    Route::get('/dossier/{id}/edit', [DossierController::class,'edit'])->name('dossier.edit');
+    Route::get('/dossier.index',[DossierController::class,'index'])->name('Dossier.index');
+    Route::get('/dossier/create', [DossierController::class,'create'])->name('Dossier.create');
+    Route::get('/dossier/{id}', [DossierController::class,'show'])->name('Dossier.show');
+    Route::get('/dossier/{id}/edit', [DossierController::class,'edit'])->name('ossier.edit');
 
 
-    Route::post('/dossier', [DossierController::class,'store'])->name('dossier.store');
-    Route::patch('/dossier/{id}', [DossierController::class,'update'])->name('dossier.update');
-    Route::delete('/dossier/{id}', [DossierController::class,'destroy'])->name('dossier.destroy');
+    Route::post('/dossier', [DossierController::class,'store'])->name('Dossier.store');
+    Route::patch('/dossier/{id}', [DossierController::class,'update'])->name('Dossier.update');
+    Route::delete('/dossier/{id}', [DossierController::class,'destroy'])->name('Dossier.destroy');
+
+});
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/contrat.index',[ContratController::class,'index'])->name('contrat.index');
+    Route::get('/contrat/create', [ContratController::class,'create'])->name('contrat.create');
+    Route::get('/contrat/{id}', [ContratController::class,'show'])->name('contrat.show');
+    Route::get('/contrat/{id}/edit', [ContratController::class,'edit'])->name('contrat.edit');
+
+
+    Route::post('/contrat', [ContratController::class,'store'])->name('contrat.store');
+    Route::patch('/contrat/{id}', [ContratController::class,'update'])->name('contrat.update');
+    Route::delete('/contrat/{id}', [ContratController::class,'destroy'])->name('contrat.destroy');
 
 });

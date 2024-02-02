@@ -38,8 +38,8 @@
           </a>
 
           <a class="collapse-item" href="{{route('Dossier.index')}}">
-            <i i class="fas fa-file-dossier" style="color: #007bff;"></i>
-            Dosiier
+            <i class="fas fa-folder" style="color: #007bff;"></i>
+            Dossier
           </a>
 
           <a class="collapse-item" href="coursier.index">
