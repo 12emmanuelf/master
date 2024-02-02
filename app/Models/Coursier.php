@@ -28,7 +28,7 @@ class Coursier extends Model
 
     public function livraison()
     {
-        return $this->hasmany(livraison::class);
+        return $this->hasmany(Livraison::class);
 
     }
 
@@ -40,7 +40,7 @@ class Coursier extends Model
 
     public function bordereau()
     {
-        return $this->hasmany(bordereau::class);
+        return $this->hasmany(Bordereau::class);
 
     }
 }

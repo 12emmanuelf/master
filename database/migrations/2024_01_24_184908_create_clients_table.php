@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('telephone');
             $table->string('email')->unique();
-            $table->foreignId('communes_id')->constrained();
+            $table->foreignId('zones_id')->constrained();
             $table->timestamps();
 
         });
@@ -29,7 +29,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('clients', function (Blueprint $table) {
-            $table->dropForeign('communes_id');
+            $table->dropForeign('zones_id');
         });
         Schema::dropIfExists('clients');
     }

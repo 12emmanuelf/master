@@ -18,7 +18,7 @@ class Lfacture extends Model
 
     public function facture()
     {
-        return $this->belongsto(facture::class);
+        return $this->belongsto(Facture::class);
 
     }
 }

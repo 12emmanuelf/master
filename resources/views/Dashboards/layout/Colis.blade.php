@@ -12,6 +12,7 @@
   <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/ruang-admin.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css')}}">
  {{-- <link href="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css')}}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
 </head>
 
@@ -64,10 +65,29 @@
             <i class="fas fa-fw fa-box" style="color: #007bff;"></i>
             Colis
           </a>
+
+         <a class="collapse-item" href="{{route('commune.index')}}">
+            <i i class="fas fa-fw fa-building" style="color: #007bff;"></i>
+            Commune
+          </a>
+
+
+         <a class="collapse-item" href="{{route('sinistre.index')}}">
+            <i class="fas fa-exclamation-triangle" style="color: #007bff;"></i></i>
+            Sinistre
+          </a>
+
+         <a class="collapse-item" href="{{route('zone.index')}}">
+            <i class="fas fa-fw fa-map-marker" style="color: #007bff;"></i>
+            Zone
+          </a>
+
          <a class="collapse-item" href="historique-colis">
             <i class="fas fa-fw fa-history" style="color: #007bff;"></i>
             Historique des Colis
          </a>
+
+
          <a class="collapse-item" href="problemes-livraison">
             <i class="fas fa-fw fa-exclamation-triangle" style="color: #007bff;"></i>
             Problèmes de Livraison
@@ -99,20 +119,6 @@
           <span>Dossiers</span>
         </a>
       </li>
-    <li class="nav-item" id="div2">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
-        aria-controls="collapseTable">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Tables</span>
-      </a>
-      <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Tables</h6>
-          <a class="collapse-item" href="simple-tables.html">Simple Tables</a>
-          <a class="collapse-item" href="datatables.html">DataTables</a>
-        </div>
-      </div>
-    </li>
 
 
   </ul>

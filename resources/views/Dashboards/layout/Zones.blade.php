@@ -26,6 +26,13 @@
       margin-top: 20px; /* Vous pouvez ajuster la valeur selon vos besoins */
     }
   </style>
+
+<style>
+
+    #div2 {
+      margin-top: 20px; /* Vous pouvez ajuster la valeur selon vos besoins */
+    }
+  </style>
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
       <div class="sidebar-brand-icon">
@@ -122,6 +129,7 @@
 
 
   </ul>
+
 
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -323,16 +331,16 @@
                 {{-- @yield('Cli1')
                 <h1>bonjour</h1> --}}
             <div>
-                @yield('use1')
+                @yield('Zo1')
             </div>
             <div>
-                @yield('use2')
+                @yield('Zo2')
             </div>
             <div>
-                @yield('use3')
+                @yield('Zo3')
             </div>
             <div>
-                @yield('use4')
+                @yield('Zo4')
             </div>
 
 
@@ -348,7 +356,7 @@
   </div>
 
   <!-- Scroll to top -->
-
+  <script src="{{asset('https://code.jquery.com/jquery-3.6.4.min.js')}}"></script>
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>

@@ -1,11 +1,15 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ZoneController;
 use App\Http\Controllers\ColisController;
+use App\Http\Controllers\VilleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MasterController;
+use App\Http\Controllers\CommuneController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CoursierController;
+use App\Http\Controllers\SinistreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,15 +47,15 @@ require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/client.index',[ClientController::class,'index']);
-    Route::get('/client/create', [ClientController::class,'create']);
-    Route::get('/client/{id}', [ClientController::class,'show']);
-    Route::get('/client/{id}/edit', [ClientController::class,'edit']);
+    Route::get('/client.index',[ClientController::class,'index'])->name('client.index');
+    Route::get('/client/create', [ClientController::class,'create'])->name('client.create');
+    Route::get('/client/{id}', [ClientController::class,'show'])->name('client.show');
+    Route::get('/client/{id}/edit', [ClientController::class,'edit'])->name('client.edit');
 
 
-    Route::post('/client', [ClientController::class,'store']);
-    Route::patch('/client/{id}', [ClientController::class,'update']);
-    Route::delete('/client/{id}', [ClientController::class,'destroy']);
+    Route::post('/client', [ClientController::class,'store'])->name('client.store');
+    Route::patch('/client/{id}', [ClientController::class,'update'])->name('clients.update');
+    Route::delete('/client/{id}', [ClientController::class,'destroy'])->name('client.destroy');
 
 });
 
@@ -96,5 +100,50 @@ Route::controller(ColisController::class)->group(function () {
     Route::post('/colis', [ColisController::class,'store']);
     Route::patch('/colis/{id}', [ColisController::class,'update']);
     Route::delete('/colis/{id}', [ColisController::class,'destroy']);
+
+});
+
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/commune.index',[CommuneController::class,'index'])->name('commune.index');
+    Route::get('/commune/create', [CommuneController::class,'create'])->name('commune.create');
+    Route::get('/commune/{id}', [CommuneController::class,'show'])->name('commune.show');
+    Route::get('/commune/{id}/edit', [CommuneController::class,'edit'])->name('commune.edit');
+
+
+    Route::post('/commune', [CommuneController::class,'store'])->name('commune.store');
+    Route::patch('/commune/{id}', [CommuneController::class,'update'])->name('commune.update');
+    Route::delete('/commune/{id}', [CommuneController::class,'destroy'])->name('commune.destroy');
+
+});
+
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/zone.index',[ZoneController::class,'index'])->name('zone.index');
+    Route::get('/zone/create', [ZoneController::class,'create'])->name('zone.create');
+    Route::get('/zone/{id}', [ZoneController::class,'show'])->name('zone.show');
+    Route::get('/zone/{id}/edit', [ZoneController::class,'edit'])->name('zone.edit');
+
+
+    Route::post('/zone', [ZoneController::class,'store'])->name('zone.store');
+    Route::patch('/zone/{id}', [ZoneController::class,'update'])->name('zone.update');
+    Route::delete('/zone/{id}', [ZoneController::class,'destroy'])->name('zone.destroy');
+
+});
+
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/sinistre.index',[SinistreController::class,'index'])->name('sinistre.index');
+    Route::get('/sinistre/create', [SinistreController::class,'create'])->name('sinistre.create');
+    Route::get('/sinistre/{id}', [SinistreController::class,'show'])->name('sinistre.show');
+    Route::get('/sinistre/{id}/edit', [SinistreController::class,'edit'])->name('sinistre.edit');
+
+
+    Route::post('/sinistre', [SinistreController::class,'store'])->name('sinistre.store');
+    Route::patch('/sinistre/{id}', [SinistreController::class,'update'])->name('sinistre.update');
+    Route::delete('/sinistre/{id}', [SinistreController::class,'destroy'])->name('sinistre.destroy');
 
 });

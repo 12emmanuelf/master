@@ -9,21 +9,14 @@ class Commune extends Model
 {
     use HasFactory;
     protected $fillable=
-    ['nom'];
+    [
+        'nom',
 
-    public function Zone()
+    ];
+
+    public function zone()
     {
         return $this->hasmany(Zone::class);
     }
-
-    public function Client()
-    {
-        return $this->hasmany(client::class);
-    }
-
-    // public function ville()
-    // {
-    //     return $this->belongsto(ville::class);
-    // }
 
 }

@@ -34,10 +34,13 @@
         </tr>
 
         <tr>
+            <th style="color: #007bff;">Commune:</th>
+            <td>{{ $client->commune->nom }}</td>
+        </tr>
 
-            <th style="color: #007bff;">Email:</th>
-            <td>{{ $commune->nom }}</td>
-
+        <tr>
+            <th style="color: #007bff;">Zone:</th>
+            <td>{{ $client->zone->nom }}</td>
         </tr>
 
 

@@ -17,13 +17,13 @@ class Facture extends Model
 
     public function lfacture()
     {
-        return $this->hasMany(lfacture::class);
+        return $this->hasMany(Lfacture::class);
 
     }
 
     public function dossier()
     {
-        return $this->belongsto(dossier::class);
+        return $this->belongsto(Dossier::class);
 
     }
 }

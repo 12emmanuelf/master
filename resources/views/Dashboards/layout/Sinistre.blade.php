@@ -323,16 +323,16 @@
                 {{-- @yield('Cli1')
                 <h1>bonjour</h1> --}}
             <div>
-                @yield('use1')
+                @yield('Si1')
             </div>
             <div>
-                @yield('use2')
+                @yield('Si2')
             </div>
             <div>
-                @yield('use3')
+                @yield('Si3')
             </div>
             <div>
-                @yield('use4')
+                @yield('Si4')
             </div>
 
 
@@ -348,7 +348,7 @@
   </div>
 
   <!-- Scroll to top -->
-
+  <script src="{{asset('https://code.jquery.com/jquery-3.6.4.min.js')}}"></script>
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>

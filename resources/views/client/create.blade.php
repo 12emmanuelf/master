@@ -49,9 +49,70 @@
     </div>
 
     <div class="form-group mb-3">
-        <label for="commune" style="color: #007bff;">Commune:</label>
-        <input type="text" class="form-control" id="communes" placeholder="Nom de la commune" name="commune">
+        <label for="nomC" style="color: #007bff;">Commune:</label>
+        <select class="form-control" id="nomC" name="nomC">
+            <option>Sélectionnez une commune</option>
+            <option value="Abobo">Abobo</option>
+            <option value="Adjamé">Adjamé</option>
+            <option value="Anyama">Anyama</option>
+            <option value="Attécoubé">Attécoubé</option>
+            <option value="Bingerville">Bingerville</option>
+            <option value="Cocody">Cocody</option>
+            <option value="Koumassi">Koumassi</option>
+            <option value="Marcory">Marcory</option>
+            <option value="Plateau">Plateau</option>
+            <option value="Port-bouët">Port-Bouët</option>
+            <option value="Songon">Songon</option>
+            <option value="Treichville">Treichville</option>
+            <option value="Yopougon">Yopougon</option>
+
+        </select>
     </div>
+        <div class="form-group mb-3">
+            <label for="nomZ" class=" text-gray" style="color: #007bff;">Zone:</label>
+            <input type="text"  class="form-control" id="nomZ" placeholder="Entrez un nom" name="nomZ">
+        </div>
+
+
+    {{-- <script src="{{asset('https://code.jquery.com/jquery-3.6.4.min.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            // Tableau associatif pour stocker les zones associées à chaque commune
+            var zonesParCommune = {
+                "Abobo": ["Baoulé", "Belleville", "Doumé","Kouamékro","N'dotré","Sagbe"],
+                "Adjamé": ["Djibi", "Plateau Dokui", "Abattoir","Avocatier"],
+                "Anyama": ["Anyama-Kouté"],
+                "Attécoubé": ["Mossikro", "Camp Militaire"],
+                "Bingerville": [" Akroméa", " M'brathé", "Djibi"],
+                "Cocody": ["Angré", "Deux-Plateaux", "Riviera","Cocody-Plateau","Palmeraie"],
+                "Koumassi": ["Remblais", "Maroc"],
+                "Marcory": ["Zone 4", "Zone 3"],
+                "Plateau": ["Dokui", "Gestion", "Indénié","Vallons"],
+                "Port-Bouët": ["Vridi", "Zone Industrielle"],
+                "Songon": ["songon"],
+                "Treichville": ["Locodjro", "Biafra"],
+                "Yopougon": [" Koweït", "Maroc", " Niangon","Sideci","Selmer","Wassakara"],
+
+                // Ajoutez les autres communes avec leurs zones respectives ici
+            };
+
+            // Fonction pour mettre à jour les options de zone en fonction de la commune sélectionnée
+            function mettreAJourZones() {
+                console.log("Fonction mettreAJourZones appelée.");
+
+                var communeSelectionnee = $("#communes_id").val();
+                console.log("Commune sélectionnée : " + communeSelectionnee);
+
+                var zones = zonesParCommune[communeSelectionnee] || [];
+
+                $("#zones").empty();
+
+                // Ajouter toutes les zones indépendamment de la commune sélectionnée
+                $.each(zones, function (index, value) {
+                    $("#zones").append('<option value="' + value + '">' + value + '</option>');
+                });
+            }
+    </script> --}}
 
     <button type="submit" class="btn btn-primary">Enregister</button>
 

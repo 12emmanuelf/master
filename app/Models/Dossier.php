@@ -15,13 +15,13 @@ class Dossier extends Model
 
         public function facture()
         {
-            return $this->hasMany(facture::class);
+            return $this->hasMany(Facture::class);
 
         }
 
         public function client()
         {
-            return $this->belongsto(client::class);
+            return $this->belongsto(Client::class);
 
         }
 }

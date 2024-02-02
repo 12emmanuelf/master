@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Zone;
+
 use App\Models\Client;
 use App\Models\Commune;
 use Illuminate\Http\Request;
@@ -11,15 +14,15 @@ class ClientController extends Controller
 {
     public function index()
     {
-        $communes = Commune::all();
+
         $clients = Client::all();
-        return view('client.index', compact('clients', 'communes'));
+        return view('client.index', compact('clients'));
     }
 
     public function create()
     {
-        $communes = Commune::all();
-        return view('client.create', compact('communes'));
+        $clients = Client::all();
+        return view('client.create', compact('clients'));
     }
 
     public function store(Request $request)
@@ -29,36 +32,46 @@ class ClientController extends Controller
             'prenom' => 'required',
             'telephone' => 'required',
             'email' => 'required',
-            'commune' => 'required',
         ]);
+        $commune = new     Commune([
+            'nom' =>$request->get('nom')
+         ]);
+         $commune->save();
 
-        $commune = Commune::firstOrCreate(['nom' => $request->get('commune')]);
+        $zone = new Zone([
+        'nom' =>$request->get('nom'),
+        'commune_id'=> $commune
+     ]);
 
+        $zone->save();
         $client = new Client([
             'nom' => $request->get('nom'),
             'prenom' => $request->get('prenom'),
             'telephone' => $request->get('telephone'),
             'email' => $request->get('email'),
-            'communes_id' => $commune->id,
+            'zone_id' => $zone,
+            'commune_id' => $commune
         ]);
+
+        dd($client);
+
+
 
         $client->save();
         event(new ClientCreated($client));
-        return redirect('/client.index')->with('success', 'Client ajouté avec succès');
+        return redirect()->route('client.index')->with('success', 'Client ajouté avec succès');
     }
 
     public function show($id)
     {
         $client = Client::findOrFail($id);
-        $communes = Commune::all();
-        return view('client.edit', compact('client', 'communes'));
+        return view('client.edit', compact('clients', ));
     }
 
     public function edit($id)
     {
         $client = Client::findOrFail($id);
-        $communes = Commune::all();
-        return view('client.edit', compact('client', 'communes'));
+        return view('client.edit', compact('clients'));
     }
 
     public function update(Request $request, $id)
@@ -68,7 +81,6 @@ class ClientController extends Controller
             'prenom' => 'required',
             'telephone' => 'required',
             'email' => 'required',
-            'communes_id' => 'required',
         ]);
 
         $client = Client::findOrFail($id);
@@ -76,11 +88,9 @@ class ClientController extends Controller
         $client->prenom = $request->get('prenom');
         $client->telephone = $request->get('telephone');
         $client->email = $request->get('email');
-        $client->communes_id = $request->get('communes_id');
-
         $client->update();
 
-        return redirect('/client.index')->with('success', 'Client modifié avec succès');
+        return redirect()->route('client.index')->with('success', 'Client modifié avec succès');
     }
 
     public function destroy($id)
@@ -88,7 +98,7 @@ class ClientController extends Controller
         $client = Client::findOrFail($id);
         $client->delete();
 
-        return redirect('/client.index')->with('success', 'Client supprimé avec succès');
+        return redirect()->route('client.index')->with('success', 'Client supprimé avec succès');
     }
 
 }

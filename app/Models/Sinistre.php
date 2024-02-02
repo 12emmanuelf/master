@@ -16,7 +16,7 @@ class Sinistre extends Model
 
     public function coursier()
     {
-        return $this->hasmany(coursier::class);
+        return $this->hasmany(Coursier::class);
 
     }
 }

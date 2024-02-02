@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('communes', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
-            // $table->foreignId('villes_id')->constrained()->default('1');
             $table->timestamps();
         });
         // Schema::enableForeignKeyConstraints();
@@ -25,10 +24,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Schema::table('communes', function (Blueprint $table) {
-        //     $table->foreignId('villes_id');
+        Schema::table('communes', function (Blueprint $table) {
+            $table->foreignId('ville_id');
 
-        // });
+        });
         Schema::dropIfExists('communes');
     }
 };

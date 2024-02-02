@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Dossier;
 
 class Client extends Model
 {
@@ -14,15 +15,16 @@ class Client extends Model
         'prenom',
         'telephone',
         'email',
+        'zones_id',
     ];
 
-    public function Commune()
+    public function zone()
     {
-        return $this->belongsto(Commune::class);
+        return $this->belongsto(Zone::class);
     }
 
     public function dossier()
     {
-        return $this->hasmany(dossier::class);
+        return $this->hasmany(Dossier::class);
     }
 }

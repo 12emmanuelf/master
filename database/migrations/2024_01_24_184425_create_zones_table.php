@@ -14,11 +14,9 @@ return new class extends Migration
         Schema::create('zones', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
+            $table->integer('Commue_id');
             $table->timestamps();
-            $table->foreignId('Commune_id')->constrained();
         });
-
-        Schema::enableForeignKeyConstraints();
     }
 
     /**

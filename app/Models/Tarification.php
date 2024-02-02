@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Villes extends Model
+class Tarrification extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nom'
+        'prix'
     ];
 
-    // public function commune()
-    // {
-    //     return $this->hasmany(commune::class);
+    public function zone()
+    {
+        return $this->belongsto(Zone::class);
 
-    // }
+    }
 }

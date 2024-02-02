@@ -2,25 +2,40 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Client;
+use App\Models\Coursier;
+use App\Models\Tarification;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Zones extends Model
+class Zone extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nom'
+        'nom',
+        'commune_id',
     ];
 
+    public function commune()
+    {
+        return $this->hasmany(Commune::class);
+
+    }
     public function coursier()
     {
-        return $this->hasmany(coursier::class);
+        return $this->hasmany(Coursier::class);
 
     }
 
-    public function tarrification()
+    public function tarification()
     {
-        return $this->hasmany(tarrification::class);
+        return $this->hasOne(Tarification::class);
+
+    }
+
+    public function client()
+    {
+        return $this->hasmany(Client::class);
 
     }
 }

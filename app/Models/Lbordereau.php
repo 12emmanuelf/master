@@ -18,7 +18,7 @@ class Lbordereau extends Model
 
         public function bordereau()
         {
-            return $this->belongsto(bordereau::class);
+            return $this->belongsto(Bordereau::class);
 
         }
 

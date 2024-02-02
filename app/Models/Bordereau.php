@@ -16,11 +16,11 @@ class Bordereau extends Model
 
     public function lbordereau()
     {
-        return $this->belongsto(lbordereau::class, );
+        return $this->belongsto(Lbordereau::class, );
     }
 
     public function coursier()
     {
-        return $this->belongsto(coursier::class, );
+        return $this->belongsto(Coursier::class, );
     }
 }

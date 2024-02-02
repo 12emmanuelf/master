@@ -42,6 +42,7 @@
                     <th>Telephone</th>
                     <th>Email</th>
                     <th>Commune</th>
+                    <th>Zone</th>
                     <th>Actions</th>
 
                 </tr>
@@ -49,12 +50,11 @@
                 @foreach ($clients as $index => $client)
 
                     <tr>
-                        <td>{{ $index }}</td>
+                        <td>{{ $index + 1 }}</td>
                         <td>{{ $client->nom }}</td>
                         <td>{{ $client->prenom}}</td>
                         <td>{{ $client->telephone}}</td>
                         <td>{{ $client->email }}</td>
-                        <td>{{ optional($client->commune)->nom }}</td>
                         <td>
 
                             <form action="{{ url('client/'. $client->id) }}" method="POST">
@@ -62,15 +62,15 @@
                                 @method('DELETE')
 
                                 <a class="btn btn-info" href="{{ url('client/'. $client->id) }}">
-                                    <i class="bi bi-eye text-dark"></i> Voir
+                                    <i class="fas fa-eye"></i> Voir
                                 </a>
 
                                 <a class="btn btn-primary" href="{{ url('client/'. $client->id .'/edit') }}">
-                                    <i class="bi bi-pencil text-dark"></i> Modifier
+                                    <i class="fas fa-edit"></i> Éditer
                                 </a>
 
                                 <button type="submit" class="btn btn-danger">
-                                    <i class="bi bi-trash text-dark"></i> Supprimer
+                                    <i class="fas fa-trash"></i> Supprimer
                                 </button>
 
                             </form>
