@@ -58,11 +58,6 @@
             Clients
           </a>
 
-          <a class="collapse-item" href="{{route('Dossier.index')}}">
-            <i class="fas fa-folder" style="color: #007bff;"></i>
-            Dossier
-          </a>
-
           <a class="collapse-item" href="coursier.index">
             <i class="fas fa-fw fa-truck" style="color: #007bff;"></i>
             Coursiers
