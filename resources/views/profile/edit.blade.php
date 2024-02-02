@@ -1,29 +1,28 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
+<form
+        id="formAccountSettings"
+        method="POST"
+        action="{{ route('profile.update',auth()->id()) }}"
+        enctype="multipart/form-data"
+        class="needs-validation"
+        role="form"
+        novalidate
+    >
+    @csrf
+    <div class="card-body">
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label for="name" class="form-label">{{ trans('sentence.name')}}</label>
+                <input class="form-control" type="text" id="name" name="name" value="{{ auth()->user()->name }}" autofocus="" required>
+                <div class="invalid-tooltip">{{ trans('sentence.required')}}</div>
             </div>
-
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
+            <div class="mb-3 col-md-6">
+                <label for="email" class="form-label">{{ trans('sentence.email')}}</label>
+                <input class="form-control" type="text" id="email" name="email" value="{{ auth()->user()->email }}" placeholder="john.doe@example.com">
+                <div class="invalid-tooltip">{{ trans('sentence.required')}}</div>
             </div>
-
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
+            <div class="mt-2">
+                <button type="submit" class="button-create me-2">{{ trans('sentence.save_changes')}}</button>
             </div>
         </div>
     </div>
-</x-app-layout>
+</form>

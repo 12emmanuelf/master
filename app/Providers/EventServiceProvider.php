@@ -20,7 +20,7 @@ class EventServiceProvider extends ServiceProvider
 
         ],
         'App\Events\ClientCreated' => [
-            'App\Listeners\CreateClientFolder',
+            'App\Listeners\CreateDossier',
         ]
     ];
 

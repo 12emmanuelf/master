@@ -26,13 +26,6 @@
       margin-top: 20px; /* Vous pouvez ajuster la valeur selon vos besoins */
     }
   </style>
-
-<style>
-
-    #div2 {
-      margin-top: 20px; /* Vous pouvez ajuster la valeur selon vos besoins */
-    }
-  </style>
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
       <div class="sidebar-brand-icon">
@@ -64,6 +57,12 @@
             <i class="fas fa-fw fa-users" style="color: #007bff;"></i>
             Clients
           </a>
+
+          <a class="collapse-item" href="{{route('Dossier.index')}}">
+            <i i class="fas fa-file-dossier" style="color: #007bff;"></i>
+            Dosiier
+          </a>
+
           <a class="collapse-item" href="coursier.index">
             <i class="fas fa-fw fa-truck" style="color: #007bff;"></i>
             Coursiers
@@ -78,7 +77,7 @@
             Commune
           </a>
 
-          <a class="collapse-item" href="{{route('commune.index')}}">
+          <a class="collapse-item" href="{{route('contrat.index')}}">
             <i class="fas fa-file-contract" style="color: #007bff;"></i>
             Contrat
           </a>
@@ -134,7 +133,6 @@
 
 
   </ul>
-
 
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -336,16 +334,16 @@
                 {{-- @yield('Cli1')
                 <h1>bonjour</h1> --}}
             <div>
-                @yield('Vi1')
+                @yield('Cli1')
             </div>
             <div>
-                @yield('Vi2')
+                @yield('Cli2')
             </div>
             <div>
-                @yield('Vi3')
+                @yield('Cli3')
             </div>
             <div>
-                @yield('Vi4')
+                @yield('Cli4')
             </div>
 
 

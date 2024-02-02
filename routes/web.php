@@ -7,6 +7,7 @@ use App\Http\Controllers\VilleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\CommuneController;
+use App\Http\Controllers\DossierController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CoursierController;
 use App\Http\Controllers\SinistreController;
@@ -145,5 +146,19 @@ Route::middleware('auth')->group(function () {
     Route::post('/sinistre', [SinistreController::class,'store'])->name('sinistre.store');
     Route::patch('/sinistre/{id}', [SinistreController::class,'update'])->name('sinistre.update');
     Route::delete('/sinistre/{id}', [SinistreController::class,'destroy'])->name('sinistre.destroy');
+
+});
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/dossier.index',[DossierController::class,'index'])->name('dossier.index');
+    Route::get('/dossier/create', [DossierController::class,'create'])->name('dossier.create');
+    Route::get('/dossier/{id}', [DossierController::class,'show'])->name('dossier.show');
+    Route::get('/dossier/{id}/edit', [DossierController::class,'edit'])->name('dossier.edit');
+
+
+    Route::post('/dossier', [DossierController::class,'store'])->name('dossier.store');
+    Route::patch('/dossier/{id}', [DossierController::class,'update'])->name('dossier.update');
+    Route::delete('/dossier/{id}', [DossierController::class,'destroy'])->name('dossier.destroy');
 
 });

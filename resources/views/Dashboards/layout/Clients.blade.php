@@ -57,6 +57,12 @@
             <i class="fas fa-fw fa-users" style="color: #007bff;"></i>
             Clients
           </a>
+
+          <a class="collapse-item" href="{{route('Dossier.index')}}">
+            <i i class="fas fa-file-dossier" style="color: #007bff;"></i>
+            Dosiier
+          </a>
+
           <a class="collapse-item" href="coursier.index">
             <i class="fas fa-fw fa-truck" style="color: #007bff;"></i>
             Coursiers
@@ -71,7 +77,7 @@
             Commune
           </a>
 
-          <a class="collapse-item" href="{{route('commune.index')}}">
+          <a class="collapse-item" href="{{route('contrat.index')}}">
             <i class="fas fa-file-contract" style="color: #007bff;"></i>
             Contrat
           </a>

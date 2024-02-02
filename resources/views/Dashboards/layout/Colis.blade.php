@@ -57,6 +57,12 @@
             <i class="fas fa-fw fa-users" style="color: #007bff;"></i>
             Clients
           </a>
+
+          <a class="collapse-item" href="{{route('Dossier.index')}}">
+            <i i class="fas fa-file-dossier" style="color: #007bff;"></i>
+            Dosiier
+          </a>
+
           <a class="collapse-item" href="coursier.index">
             <i class="fas fa-fw fa-truck" style="color: #007bff;"></i>
             Coursiers
@@ -71,11 +77,10 @@
             Commune
           </a>
 
-          <a class="collapse-item" href="{{route('commune.index')}}">
+          <a class="collapse-item" href="{{route('contrat.index')}}">
             <i class="fas fa-file-contract" style="color: #007bff;"></i>
             Contrat
           </a>
-
 
 
          <a class="collapse-item" href="{{route('sinistre.index')}}">
@@ -329,16 +334,16 @@
                 {{-- @yield('Cli1')
                 <h1>bonjour</h1> --}}
             <div>
-                @yield('Co1')
+                @yield('Cli1')
             </div>
             <div>
-                @yield('Co2')
+                @yield('Cli2')
             </div>
             <div>
-                @yield('Co3')
+                @yield('Cli3')
             </div>
             <div>
-                @yield('Co4')
+                @yield('Cli4')
             </div>
 
 
@@ -354,7 +359,7 @@
   </div>
 
   <!-- Scroll to top -->
-
+  <script src="{{asset('https://code.jquery.com/jquery-3.6.4.min.js')}}"></script>
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
