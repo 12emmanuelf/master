@@ -42,22 +42,22 @@
 
                 </tr>
 
-                @foreach ($communes as $index => $commune)
+                @foreach ($communes as $item)
 
                     <tr>
-                        <td>{{ $index + 1}}</td>
-                        <td>{{ $commune->nom }}</td>
+                        <td>{{ $loop->iteration}}</td>
+                        <td>{{ $item->nom }}</td>
                         <td>
 
-                            <form action="{{ url('commune/'. $commune->id) }}" method="POST">
+                            <form action="{{ url('commune/'. $item->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 
-                                <a class="btn btn-info" href="{{ url('commune/'. $commune->id) }}">
+                                <a class="btn btn-info" href="{{ url('commune/'. $item->id) }}">
                                     <i class="fas fa-eye"></i> Voir
                                 </a>
 
-                                <a class="btn btn-primary" href="{{ url('commune/'. $commune->id .'/edit') }}">
+                                <a class="btn btn-primary" href="{{ url('commune/'. $item->id .'/edit') }}">
                                     <i class="fas fa-edit"></i> Éditer
                                 </a>
 

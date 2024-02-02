@@ -11,7 +11,8 @@ class Facture extends Model
     protected $fillable=[
     'montantT',
     'statut',
-    'date'
+    'date',
+    'facture'
     ];
 
 

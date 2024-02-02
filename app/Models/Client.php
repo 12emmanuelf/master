@@ -15,7 +15,7 @@ class Client extends Model
         'prenom',
         'telephone',
         'email',
-        'zones_id',
+        'zone_id',
     ];
 
     public function zone()

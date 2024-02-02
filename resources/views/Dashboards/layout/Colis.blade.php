@@ -71,6 +71,12 @@
             Commune
           </a>
 
+          <a class="collapse-item" href="{{route('commune.index')}}">
+            <i class="fas fa-file-contract" style="color: #007bff;"></i>
+            Contrat
+          </a>
+
+
 
          <a class="collapse-item" href="{{route('sinistre.index')}}">
             <i class="fas fa-exclamation-triangle" style="color: #007bff;"></i></i>

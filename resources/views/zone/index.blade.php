@@ -43,23 +43,23 @@
 
                 </tr>
 
-                @foreach ($zones as $index => $zone)
+                @foreach ($zones as $item)
 
                     <tr>
-                        <td>{{ $index + 1}}</td>
-                        <td>{{ $zone->nom }}</td>
-                        <td>{{ $zone->commune_id }}</td>
+                        <td>{{ $loop->iteration}}</td>
+                        <td>{{ $item->nom }}</td>
+                        <td>{{ $item->commune_id }}</td>
                         <td>
 
-                            <form action="{{ url('zone/'. $zone->id) }}" method="POST">
+                            <form action="{{ url('zone/'. $item->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 
-                                <a class="btn btn-info" href="{{ url('zone/'. $zone->id) }}">
+                                <a class="btn btn-info" href="{{ url('zone/'. $item->id) }}">
                                     <i class="fas fa-eye"></i> Voir
                                 </a>
 
-                                <a class="btn btn-primary" href="{{ url('zone/'. $zone->id .'/edit') }}">
+                                <a class="btn btn-primary" href="{{ url('zone/'. $item->id .'/edit') }}">
                                     <i class="fas fa-edit"></i> Éditer
                                 </a>
 

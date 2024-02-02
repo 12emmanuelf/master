@@ -61,7 +61,7 @@ class ClientController extends Controller
     {
         $client = Client::findOrFail($id);
         $zone = Zone::find($client->zone_id);
-        return view('client.edit', compact('client','zone' ));
+        return view('client.show', compact('client','zone' ));
     }
 
     public function edit($id)
@@ -97,8 +97,6 @@ class ClientController extends Controller
                     } else {
                         return redirect()->back()->with('error', 'La zone spécifiée n\'a pas été trouvée.');
                     }
-
-      return redirect()->route('client.index')->with('success', 'Client ajouté avec succès');
     }
 
     public function destroy($id)

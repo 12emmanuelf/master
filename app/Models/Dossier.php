@@ -9,7 +9,8 @@ class Dossier extends Model
 {
     use HasFactory;
     protected $fillable=[
-      'nom'
+      'nom',
+      'client_id'
         ];
 
 

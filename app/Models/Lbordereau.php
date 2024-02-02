@@ -12,7 +12,8 @@ class Lbordereau extends Model
         'prix',
         'numero',
         'quantite',
-        'statut'
+        'statut',
+        'facture_id'
         ];
 
 

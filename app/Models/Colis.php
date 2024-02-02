@@ -13,7 +13,8 @@ class Colis extends Model
         'adresse',
         'telephpne',
         'reference',
-        'nomC',
+        'nom',
+        'livraison_id',
     ];
 
     public function livraison()

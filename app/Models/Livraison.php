@@ -11,6 +11,7 @@ class Livraison extends Model
     protected $fillable = [
         'statut',
         'jourlivraison',
+        'coursier_id'
     ];
 
     public function coursier()
