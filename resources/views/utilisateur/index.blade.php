@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -131,4 +131,5 @@
   <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
 </body>
 
-</html>
+</html> --}}
+<h1> en attente</h1>

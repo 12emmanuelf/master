@@ -7,6 +7,7 @@ use App\Http\Controllers\VilleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\CommuneController;
+use App\Http\Controllers\ContratController;
 use App\Http\Controllers\DossierController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CoursierController;

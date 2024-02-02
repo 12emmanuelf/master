@@ -44,7 +44,7 @@
 
                 </tr>
 
-                @foreach ($clients as $item)
+                @foreach ($contrats as $item)
 
                     <tr>
                         <td>{{ $loop->iteration}}</td>

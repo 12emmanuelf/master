@@ -2,7 +2,7 @@
 @section('Con2')
 
 <div style="margin-left: 3%; font-weight: bold;">
-<h1 class="text-center">AJOUTER UN CLIENT</h1>
+<h1 class="text-center">AJOUTER UN CONTRAT</h1>
 
 
 @if ($errors->any())
@@ -25,13 +25,13 @@
 
     <div class="form-group mb-3">
         <label for="type" class=" text-gray" style="color: #007bff;">Type:</label>
-        <input type="text"  class="form-control" id="nom" placeholder="Entrez un nom" name="nom">
+        <input type="text"  class="form-control" id="type" placeholder="type de contrat" name="type">
     </div>
 
     <div class="form-group mb-3">
         <label for="description" class="form-label">Description</label>
-        <textarea class="form-control" id="description" rows="3"></textarea>
-      </div>
+        <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+    </div>
 
     <div class="form-group mb-3">
         <label for="client_id" style="color: #007bff;">Client :</label>

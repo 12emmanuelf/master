@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Contrat;
 use Illuminate\Http\Request;
 
 class ContratController extends Controller
@@ -33,10 +34,10 @@ class ContratController extends Controller
 
             if ($client) {
                 $contrat = new Contrat;
-                $contrat->type = $request->get('contrat');
+                $contrat->type = $request->get('type');
                 $contrat->description = $request->get('description');
                 $contrat->client_id = $client->id;
-                $zone->save();
+                $contrat->save();
 
                 return redirect()->route('contrat.index')->with('success', 'Contrat ajoutée avec succès');
             } else {
@@ -76,7 +77,7 @@ class ContratController extends Controller
             $contrat->type = $request->get('type');
             $contrat->description = $request->get('description');
             $contrat->client_id = $client->id;
-            $zone->update();
+            $contrat->update();
 
             return redirect()->route('zone.index')->with('success', 'Contrat modifiée avec succès');
         } else {
