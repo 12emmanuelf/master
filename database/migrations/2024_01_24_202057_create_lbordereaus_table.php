@@ -17,8 +17,11 @@ return new class extends Migration
             $table->char('numero');
             $table->char('quantite');
             $table->string('statut');
-            $table->foreignId('bordereaus_id')->constrained('bordereaus'); // Spécifie la table référencée
-            $table->foreignId('colis_id')->constrained('colis'); // Spécifie la table référencée
+            $table->unsignedBigInteger('bordereaus_id');
+            $table->unsignedBigInteger('colis_id');
+            $table->foreign('bordereaus_id')->references('id')->on('bordereaus')->onDelete('cascade');
+            $table->foreign('colis_id')->references('id')->on('colis')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

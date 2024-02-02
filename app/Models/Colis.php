@@ -16,8 +16,13 @@ class Colis extends Model
         'nomC',
     ];
 
-    // public function Coursier()
-    // {
-    //     return $this->belongsto(Coursier::class, );
-    // }
+    public function livraison()
+    {
+        return $this->belongsTo(Livraison::class);
+    }
+
+    public function coursiers()
+    {
+        return $this->belongsToMany(Coursier::class, 'livraisons');
+    }
 }

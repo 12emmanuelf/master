@@ -19,4 +19,8 @@ class Livraison extends Model
 
     }
 
+    public function colis()
+    {
+        return $this->hasMany(Colis::class);
+    }
 }

@@ -26,7 +26,7 @@
     <div class="form-group mb-3">
         <label for="commune_id" style="color: #007bff;">Commune :</label>
         <select class="form-control" id="commune_id" name="commune_id">
-            <option value="">Sélectionnez une Commune</option>
+            <option >Sélectionnez une Commune</option>
             @foreach($communes as $commune)
                 <option value="{{ $commune->id }}">{{ $commune->nom }}</option>
             @endforeach

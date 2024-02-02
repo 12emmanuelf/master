@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Zone;
+
+
 
 use App\Models\Client;
-use App\Models\Commune;
+use App\Models\Zone;
 use Illuminate\Http\Request;
 use App\Events\ClientCreated;
 
@@ -22,7 +23,8 @@ class ClientController extends Controller
     public function create()
     {
         $clients = Client::all();
-        return view('client.create', compact('clients'));
+        $zones = Zone::all();
+        return view('client.create', compact('clients','zones'));
     }
 
     public function store(Request $request)
@@ -32,46 +34,41 @@ class ClientController extends Controller
             'prenom' => 'required',
             'telephone' => 'required',
             'email' => 'required',
-        ]);
-        $commune = new     Commune([
-            'nom' =>$request->get('nom')
-         ]);
-         $commune->save();
-
-        $zone = new Zone([
-        'nom' =>$request->get('nom'),
-        'commune_id'=> $commune
-     ]);
-
-        $zone->save();
-        $client = new Client([
-            'nom' => $request->get('nom'),
-            'prenom' => $request->get('prenom'),
-            'telephone' => $request->get('telephone'),
-            'email' => $request->get('email'),
-            'zone_id' => $zone,
-            'commune_id' => $commune
+            'zone_id' =>'required',
         ]);
 
-        dd($client);
+        $zoneId = $request->get('zone_id');
+        $zone = Zone::find($zoneId);
 
+        if($zone){
+        $client = new Client;
+            $client ->nom  = $request->get('nom');
+            $client -> prenom = $request->get('prenom');
+            $client-> telephone = $request->get('telephone');
+            $client-> email =  $request->get('email');
+            $client-> zone_id = $zone ->id;
 
+            $client->save();
+            return redirect()->route('client.index')->with('success', 'Client ajouté avec succès');
+                    } else {
+                        return redirect()->back()->with('error', 'La zone spécifiée n\'a pas été trouvée.');
+                    }
+     }
 
-        $client->save();
-        event(new ClientCreated($client));
-        return redirect()->route('client.index')->with('success', 'Client ajouté avec succès');
-    }
+        // event(new ClientCreated($client));
 
     public function show($id)
     {
         $client = Client::findOrFail($id);
-        return view('client.edit', compact('clients', ));
+        $zone = Zone::find($client->zone_id);
+        return view('client.edit', compact('client','zone' ));
     }
 
     public function edit($id)
     {
         $client = Client::findOrFail($id);
-        return view('client.edit', compact('clients'));
+        $zones = Zone::all();
+        return view('client.edit', compact('client', 'zones'));
     }
 
     public function update(Request $request, $id)
@@ -81,16 +78,27 @@ class ClientController extends Controller
             'prenom' => 'required',
             'telephone' => 'required',
             'email' => 'required',
+            'zone_id'=> 'required'
         ]);
 
-        $client = Client::findOrFail($id);
-        $client->nom = $request->get('nom');
-        $client->prenom = $request->get('prenom');
-        $client->telephone = $request->get('telephone');
-        $client->email = $request->get('email');
-        $client->update();
+        $zoneId = $request->get('zone_id');
+        $zone = Zone::find($zoneId);
 
-        return redirect()->route('client.index')->with('success', 'Client modifié avec succès');
+        if($zone){
+        $client = new Client;
+            $client ->nom  = $request->get('nom');
+            $client -> prenom = $request->get('prenom');
+            $client-> telephone = $request->get('telephone');
+            $client-> email =  $request->get('email');
+            $client-> zone_id = $zone ->id;
+
+            $client->update();
+            return redirect()->route('client.index')->with('success', 'Client ajouté avec succès');
+                    } else {
+                        return redirect()->back()->with('error', 'La zone spécifiée n\'a pas été trouvée.');
+                    }
+
+      return redirect()->route('client.index')->with('success', 'Client ajouté avec succès');
     }
 
     public function destroy($id)

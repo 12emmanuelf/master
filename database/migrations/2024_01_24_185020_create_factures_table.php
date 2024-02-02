@@ -16,7 +16,8 @@ return new class extends Migration
             $table->char('montantT');
             $table->string('statut');
             $table->date('date');
-            $table->foreignId('dossiers_id')->constrained();
+            $table->unsignedBigInteger('dossiers_id');
+            $table->foreign('dossiers_id')->references('id')->on('dossiers')->onDelete('cascade');
             $table->timestamps();
         });
 

@@ -13,8 +13,8 @@
         </tr>
 
         <tr>
-            <th style="color: #007bff;">Nom :</th>
-            <td>{{ $commune->nom }}</td>
+            <th style="color: #007bff;">Commune :</th>
+            <td>{{ $zone->commune_id }}</td>
         </tr>
 
 

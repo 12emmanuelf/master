@@ -16,7 +16,8 @@ return new class extends Migration
             $table->char('numero');
             $table->char('quantite');
             $table->string('statut');
-            $table->foreignId('factures_id')->constrained();
+            $table->unsignedBigInteger('factures_id');
+            $table->foreign('factures_id')->references('id')->on('factures')->onDelete('cascade');
             $table->timestamps();
         });
 

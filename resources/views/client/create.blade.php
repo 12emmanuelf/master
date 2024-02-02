@@ -49,29 +49,20 @@
     </div>
 
     <div class="form-group mb-3">
-        <label for="nomC" style="color: #007bff;">Commune:</label>
-        <select class="form-control" id="nomC" name="nomC">
-            <option>Sélectionnez une commune</option>
-            <option value="Abobo">Abobo</option>
-            <option value="Adjamé">Adjamé</option>
-            <option value="Anyama">Anyama</option>
-            <option value="Attécoubé">Attécoubé</option>
-            <option value="Bingerville">Bingerville</option>
-            <option value="Cocody">Cocody</option>
-            <option value="Koumassi">Koumassi</option>
-            <option value="Marcory">Marcory</option>
-            <option value="Plateau">Plateau</option>
-            <option value="Port-bouët">Port-Bouët</option>
-            <option value="Songon">Songon</option>
-            <option value="Treichville">Treichville</option>
-            <option value="Yopougon">Yopougon</option>
-
+        <label for="zone_id" style="color: #007bff;">Zone :</label>
+        <select class="form-control" id="zone_id" name="zone_id">
+            <option >Sélectionnez une Zone</option>
+            @foreach($zones as $zone)
+                <option value="{{ $zone->id }}">{{ $zone->nom }}</option>
+            @endforeach
         </select>
     </div>
-        <div class="form-group mb-3">
+
+
+        {{-- <div class="form-group mb-3">
             <label for="nomZ" class=" text-gray" style="color: #007bff;">Zone:</label>
             <input type="text"  class="form-control" id="nomZ" placeholder="Entrez un nom" name="nomZ">
-        </div>
+        </div> --}}
 
 
     {{-- <script src="{{asset('https://code.jquery.com/jquery-3.6.4.min.js')}}"></script>

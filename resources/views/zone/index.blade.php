@@ -46,9 +46,9 @@
                 @foreach ($zones as $index => $zone)
 
                     <tr>
-                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $index + 1}}</td>
                         <td>{{ $zone->nom }}</td>
-                        <td>{{ $commune->nom }}</td>
+                        <td>{{ $zone->commune_id }}</td>
                         <td>
 
                             <form action="{{ url('zone/'. $zone->id) }}" method="POST">

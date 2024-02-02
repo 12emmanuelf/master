@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('statut');
             $table->string('jourlivrison');
             $table->timestamps();
-            $table->foreignId('coursiers_id');
+            $table->unsignedBigInteger('coursiers_id');
+            $table->foreign('coursiers_id')->references('id')->on('coursiers')->onDelete('cascade');
 
         });
         Schema::enableForeignKeyConstraints();

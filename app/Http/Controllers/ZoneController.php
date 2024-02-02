@@ -23,57 +23,62 @@ class ZoneController extends Controller
 
     public function store(Request $request)
     {
-        $commune = Commune::find(1);
         $request->validate([
             'nom' => 'required',
+            'commune_id' => 'required'
         ]);
-        $commune->save();
 
-        // $zone = new zone([
-        //     'nom' => $request->get('nom'),
-        //     'commune_id' => $commune
-        // ]);
+        $communeId = $request->get('commune_id');
+        $commune = Commune::find($communeId);
 
-       $zone = new zone;
+            if ($commune) {
+                $zone = new Zone;
+                $zone->nom = $request->get('nom');
+                $zone->commune_id = $commune->id;
+                $zone->save();
 
-        $zone->nom = $request->get('nom');
-        $zone->commune_id = 1;
-
-        // dd($zone);
-        $zone->save();
-
-        return redirect()->route('zone.index')->with('success', 'zone ajouté avec succès');
-
-    }
+                return redirect()->route('zone.index')->with('success', 'Zone ajoutée avec succès');
+            } else {
+                return redirect()->back()->with('error', 'La commune spécifiée n\'a pas été trouvée.');
+            }
+        }
 
     public function show($id)
     {
-        $zone = Zone::findOrFail($id);
-        $commune = Commune::findOrFail($id);
-        return view('zone.show', compact('zone','commune' ));
+        $zone = Zone::find($id);
+        $commune = Commune::find($zone->commune_id);
+        return view('zone.show', compact('zone','commune'));
     }
 
     public function edit($id)
     {
 
         $zones = Zone::all();
-        $commune = Commune::findOrFail($id);
-        return view('zone.edit', compact('zones','commune'));
+        $zone = Zone::findOrFail($id);
+        $communes = Commune::all();
+        return view('zone.edit', compact('zones', 'zone', 'communes'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
             'nom' => 'required',
+            'commune_id' => 'required'
         ]);
 
+        $communeId = $request->get('commune_id');
+        $commune = Commune::find($communeId);
         $zone = Zone::findOrFail($id);
-        $zone->nom = $request->get('nom');
 
+        if ($commune) {
+            $zone->nom = $request->get('nom');
+            $zone->commune_id = $commune->id;
+            $zone->update();
 
-        $zone->update();
-
-        return redirect()->route('zone.index')->with('success', 'zone modifié avec succès');
+            return redirect()->route('zone.index')->with('success', 'Zone modifiée avec succès');
+        } else {
+            return redirect()->back()->with('error', 'La commune spécifiée n\'a pas été trouvée.');
+        }
     }
 
     public function destroy($id)
@@ -81,7 +86,7 @@ class ZoneController extends Controller
         $zone = Zone::findOrFail($id);
         $zone->delete();
 
-        return redirect()->route('zone.index')->with('success', 'Zone supprimé avec succès');
+        return redirect()->route('zone.index')->with('success', 'Zone supprimée avec succès');
     }
 
 }

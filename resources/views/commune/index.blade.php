@@ -45,7 +45,7 @@
                 @foreach ($communes as $index => $commune)
 
                     <tr>
-                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $index + 1}}</td>
                         <td>{{ $commune->nom }}</td>
                         <td>
 

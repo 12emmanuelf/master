@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('adresse');
             $table->string('telephone');
             $table->string('reference');
-            $table->string('nomC');
-            // $table->foreignId('coursiers_id')->constrained();
+            $table->string('nom');
+            $table->unsignedBigInteger('livraison_id');
+            $table->foreign('livraison_id')->references('id')->on('livraisons')->onDelete('cascade');
             $table->timestamps();
         });
 
@@ -30,10 +31,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Schema::table('colis', function (Blueprint $table) {
-        //     $table->foreignId('coursiers_id');
+        Schema::table('colis', function (Blueprint $table) {
+            $table->foreignId('livraison_id');
 
-        // });
+        });
         Schema::dropIfExists('colis');
     }
 };

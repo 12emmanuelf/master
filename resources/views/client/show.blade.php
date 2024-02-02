@@ -34,13 +34,8 @@
         </tr>
 
         <tr>
-            <th style="color: #007bff;">Commune:</th>
-            <td>{{ $client->commune->nom }}</td>
-        </tr>
-
-        <tr>
             <th style="color: #007bff;">Zone:</th>
-            <td>{{ $client->zone->nom }}</td>
+            <td>{{ $client->zone_id }}</td>
         </tr>
 
 

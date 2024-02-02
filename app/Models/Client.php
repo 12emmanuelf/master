@@ -25,6 +25,11 @@ class Client extends Model
 
     public function dossier()
     {
-        return $this->hasmany(Dossier::class);
+        return $this->hasOne(Dossier::class);
+    }
+
+    public function contrat()
+    {
+        return $this->hasOne(Contrat::class);
     }
 }

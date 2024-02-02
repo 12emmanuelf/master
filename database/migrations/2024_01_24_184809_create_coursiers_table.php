@@ -26,8 +26,10 @@ return new class extends Migration
             $table->enum('statut', [ 'actif', 'inactif']);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->foreignId('zones_id')->constrained();
-            $table->foreignId('sinistre_id')->constrained();
+            $table->unsignedBigInteger('zones_id');
+            $table->foreign('zones_id')->references('id') ->on('zones')->onDelete('cascade');
+            $table->unsignedBigInteger('sinistre_id');
+            $table->foreign('sinistre_id')->references('id') ->on('sinistres')->onDelete('cascade');
             $table->timestamps();
         });
 

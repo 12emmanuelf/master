@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tarrifications', function (Blueprint $table) {
+        Schema::create('contrats', function (Blueprint $table) {
             $table->id();
-            $table->decimal('prix');
+            $table->string('type');
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -24,6 +25,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tarrifications');
+
+        Schema::table('contrats', function (Blueprint $table) {
+            $table->dropForeign('client_id');
+        });
+        Schema::dropIfExists('contrats');
     }
 };

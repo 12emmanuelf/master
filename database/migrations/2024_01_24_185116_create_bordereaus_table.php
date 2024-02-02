@@ -16,7 +16,8 @@ return new class extends Migration
             $table->char('montantT');
             $table->string('statut');
             $table->date('date');
-            $table->foreignId('coursiers_id')->constrained();
+            $table->unsignedBigInteger('coursier_id');
+            $table->foreign('coursier_id')->references('id')->on('coursiers')->onDelete('cascade');
             $table->timestamps();
 
         });
@@ -30,7 +31,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('bordereaus', function (Blueprint $table) {
-            $table->foreignId('coursiers_id');
+            $table->foreignId('coursier_id');
 
         });
         Schema::dropIfExists('bordereaus');

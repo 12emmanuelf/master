@@ -41,7 +41,6 @@
                     <th>Prenom</th>
                     <th>Telephone</th>
                     <th>Email</th>
-                    <th>Commune</th>
                     <th>Zone</th>
                     <th>Actions</th>
 
@@ -55,6 +54,7 @@
                         <td>{{ $client->prenom}}</td>
                         <td>{{ $client->telephone}}</td>
                         <td>{{ $client->email }}</td>
+                        <td>{{ $client->zone_id }}</td>
                         <td>
 
                             <form action="{{ url('client/'. $client->id) }}" method="POST">

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('telephone');
             $table->string('email')->unique();
-            $table->foreignId('zones_id')->constrained();
+            $table->unsignedBigInteger('zone_id');
+            $table->foreign('zone_id')->references('id') ->on('zones')->onDelete('cascade');
             $table->timestamps();
 
         });
@@ -29,7 +30,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('clients', function (Blueprint $table) {
-            $table->dropForeign('zones_id');
+            $table->dropForeign('zone_id');
         });
         Schema::dropIfExists('clients');
     }

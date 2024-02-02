@@ -43,7 +43,7 @@ class CommuneController extends Controller
     {
         $commune = Commune::findOrFail($id);
 
-        return view('commune.edit', compact('communes'));
+        return view('commune.show', compact('commune'));
     }
 
     public function edit($id)
