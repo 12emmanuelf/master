@@ -124,12 +124,6 @@
         <span>Utilisateurs</a></span>
       </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('Dossier.index')}}">
-          <i class="fas fa-fw fa-folder"></i> <!-- Ajout de l'icône de dossier -->
-          <span>Dossiers</span>
-        </a>
-      </li>
 
 
   </ul>

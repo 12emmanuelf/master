@@ -64,11 +64,8 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-uppercase mb-1">Nombres de client</div>
-                            <p class="mb-0"> {{ $totals['clients'] }}</p>
-                            <div class="mt-2 mb-0 text-muted text-xs">
-                                <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 0%</span>
-                                <span>Depuis le mois passé</span>
-                            </div>
+                            <p class="mb-0" > <h1>{{ $totals['clients'] }} </h1></p>
+
                             </div>
                             <div class="col-auto">
                             <i class="fas fa-fw fa-users  fa-2x "  style="color: hsl(0, 78%, 61%);"></i>
@@ -84,11 +81,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-uppercase mb-1">Nombre d'utilisateur</div>
-                            <p class="mb-0"> {{ $totals['users'] }}</p>
-                            <div class="mt-2 mb-0 text-muted text-xs">
-                                <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 0%</span>
-                                <span>Depuis le mois dernier</span>
-                            </div>
+                            <p class="mb-0"><h1>{{ $totals['users'] }}</h1></p>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-user fa-2x" style="color: #00ff62;"></i>
@@ -100,21 +93,17 @@
 
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card h-100">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-uppercase mb-1">Nombre de coursier</div>
-                                <p class="mb-0"> {{ $totals['coursiers'] }}</p>
-                                <div class="mt-2 mb-0 text-muted text-xs">
-                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>0%</span>
-                                <span>Depuis le mois dernier</span>
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-uppercase mb-1">Nombre de coursier</div>
+                                        <p class="mb-0"><h1> {{ $totals['coursiers']}}</h1></p>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-truck fa-2x " style="color: #238a5f;"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-auto">
-                                <i class="fas fa-truck fa-2x " style="color: #238a5f;"></i>
-                            </div>
-                            </div>
-                        </div>
                         </div>
                     </div>
                     <!-- Autres cartes et graphiques ici ... -->

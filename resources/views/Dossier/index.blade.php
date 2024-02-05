@@ -1,93 +1,45 @@
 @extends('Dashboards.layout.Dossiers')
-@section('Co1')
-{{-- <div class="container-fluid" id="container-wrapper">
+@section('Do1')
 
+<h1 class="dossier-tit">LISTE DES DOSSIERS </h1>
 
-    <div>
-            <div class="row">
+<div class="dossier-container">
+    @foreach($dossiers as $dossier)
+        <div class="dossier-item">
+            <a href="{{ route('Dossier.show', ['id' => $dossier->id]) }}" class="access-link"><img src="{{ asset('img/dossier.jfif') }}" alt="Dossier Icon" class="dossier-icon"></a>
+            <p class="Dossier-name">{{ $dossier->nom }}</p>
 
-                <div class="col-lg-11">
+        </div>
+    @endforeach
+</div>
 
-                    <h1 style="font-weight: bold;">Gestion des Colis</h1>
+<style>
+        .dossier-tit {
+       margin-left: 20px
+    }
+    .dossier-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-                </div>
+    .dossier-item {
+        margin: 20px 30px 20px 0;
+    }
 
-                <div class="col-lg-1">
-                    <a class="btn btn-success" href="{{ url('colis/create') }}">Ajouter</a>
-                </div>
+    .dossier-icon {
+        width: 80px;
+        height: 80px;
+        margin-left: 20px;
+        vertical-align: middle;
+    }
 
-            </div>
+    .Dossier-name {
+        margin-left: 30px; /* Ajoutez une marge en bas du nom du dossier */
+    }
 
-
-
-            @if(session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                    <script>
-                        setTimeout(function(){
-                            window.location.href = '{{ url('/colis.index') }}';
-                        }, {{ session('delay', 3) * 1000 }});
-                    </script>
-                </div>
-            @endif
-
-            <table class="table table-bordered">
-
-                <tr>
-
-                    <th>No</th>
-                    <th>Destinataire</th>
-                    <th>Adresse</th>
-                    <th>telephone</th>
-                    <th>reference</th>
-                    <th>nom du coursier</th>
-                    <th>Actions</th>
-
-                </tr>
-
-                @foreach ($colis as $index => $colis)
-
-                    <tr>
-                        <td>{{ $index }}</td>
-                        <td>{{ $colis->Destinataire }}</td>
-                        <td>{{ $colis->adresse}}</td>
-                        <td>{{ $colis->telephone}}</td>
-                        <td>{{ $colis->lieu}}</td>
-                        <td>{{ $colis->reference}}</td>
-                        <td>{{ $colis->nomC}}</td>
-                        <td>
-
-                            <form action="{{ url('colis/'. $colis->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-
-                                <a class="btn btn-info" href="{{ url('colis/'. $colis->id) }}">
-                                    <i class="fas fa-eye"></i> Voir
-                                </a>
-
-                                <a class="btn btn-primary" href="{{ url('colis/'. $colis->id .'/edit') }}">
-                                    <i class="fas fa-edit"></i> Éditer
-                                </a>
-
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i> Supprimer
-                                </button>
-
-                            </form>
-
-                        </td>
-
-                    </tr>
-
-                @endforeach
-            </table>
-
-    </div>
-
-
-
-  </div> --}}
-  <h1> Dossier en attentent </h1>
-
+    .access-link {
+        margin-left: 10px;
+    }
+</style>
 
 @endsection

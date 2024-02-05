@@ -53,12 +53,6 @@ class ClientController extends Controller
 
                     event(new ClientCreated($client));
 
-                // Création du dossier à l'intérieur du bloc if
-                $dossier = Dossier::create([
-                    'client_id' => $client->id,
-                    'nom' => "Dossier_Client_{$client->id}",
-                ]);
-
                 return redirect()->route('client.index')->with('success', 'Client ajouté avec succès');
             } else {
                 return redirect()->back()->with('error', 'La zone spécifiée n\'a pas été trouvée.');

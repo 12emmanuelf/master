@@ -27,7 +27,7 @@ class CreateDossier
         // Créer un nouveau dossier associé au client
         Dossier::create([
             'client_id' => $client->id,
-            'nom' => "Dossier_Client_{$client->id}",
+            'nom' => "{$client->id}_{$client->nom}",
         ]);
     }
 }
