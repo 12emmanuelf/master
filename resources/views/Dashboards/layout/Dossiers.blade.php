@@ -57,11 +57,11 @@
             <i class="fas fa-fw fa-users" style="color: #007bff;"></i>
             Clients
           </a>
-
+{{--
           <a class="collapse-item" href="{{route('Dossier.index')}}">
             <i class="fas fa-folder" style="color: #007bff;"></i>
             Dossier
-          </a>
+          </a> --}}
 
           <a class="collapse-item" href="colis.index">
             <i class="fas fa-fw fa-box" style="color: #007bff;"></i>
@@ -115,17 +115,12 @@
 
     <hr class="sidebar-divider">
     <li class="nav-item">
-      <a class="nav-link">
-        <i class="fas fa-fw fa-user"></i>
-        <span>Utilisateurs</a></span>
-      </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('Dossier.index')}}">
-          <i class="fas fa-fw fa-folder"></i> <!-- Ajout de l'icône de dossier -->
-          <span>Dossiers</span>
-        </a>
-      </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('user.index')}}">
+              <i class="fas fa-fw fa-user"></i>
+              <span>Utilisateurs</span>
+            </a>
+          </li>
 
 
   </ul>

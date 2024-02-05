@@ -1,6 +1,6 @@
 
-@extends("Dashbord.layouts.users")
-@section("bonjour")
+@extends("Dashboards.layout.Users")
+@section("Uti3")
 <div class="container mt-5">
 
 
@@ -29,15 +29,8 @@
 
         <div class="form-group mb-3">
 
-            <label for="nom">Nom:</label>
-            <input type="text" class="form-control" id="nom" placeholder="Entrer Nom" name="nom" value="{{ $user->nom}}">
-
-        </div>
-
-        <div class="form-group mb-3">
-
-            <label for="prenom">Prenom:</label>
-            <input type="text" class="form-control" id="prenom" placeholder="Entrer une prenom" name="Prenom" value="{{ $user->prenom}}">
+            <label for="name">Nom:</label>
+            <input type="text" class="form-control" id="name" placeholder="Entrer Nom" name="name" value="{{ $user->name}}">
 
         </div>
 

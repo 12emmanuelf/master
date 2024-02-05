@@ -1,6 +1,6 @@
-@extends('Dashboards.layout.Zones')
+@extends('Dashboards.layout.Users')
 
-@section('Zo1')
+@section('Uti1')
 <div class="container-fluid" id="container-wrapper">
 
 
@@ -9,12 +9,12 @@
 
                 <div class="col-lg-11">
 
-                    <h1 style="font-weight: bold;">GESTION DES ZONES</h1>
+                    <h1 style="font-weight: bold;">GESTION DES UTILISATEURS</h1>
 
                 </div>
 
                 <div class="col-lg-1">
-                    <a class="btn btn-success" href="{{ url('zone/create') }}">Ajouter</a>
+                    <a class="btn btn-success" href="{{ url('user/create') }}">Ajouter</a>
                 </div>
 
             </div>
@@ -26,7 +26,7 @@
                     {{ session('success') }}
                     <script>
                         setTimeout(function(){
-                            window.location.href = '{{ url('/zone.index') }}';
+                            window.location.href = '{{ url('/user.index') }}';
                         }, {{ session('delay', 3) * 1000 }});
                     </script>
                 </div>
@@ -38,28 +38,30 @@
 
                     <th>No</th>
                     <th>Nom</th>
-                    <th>Commune</th>
+                    <th>Email</th>
+                    <th>Password</th>
                     <th>Actions</th>
 
                 </tr>
 
-                @foreach ($zones as $item)
+                @foreach ($users as $item)
 
                     <tr>
                         <td>{{ $loop->iteration}}</td>
-                        <td>{{ $item->nom }}</td>
-                        <td>{{ $item->commune_id }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->email}}</td>
+                        <td>{{ $item->password}}</td>
                         <td>
 
-                            <form action="{{ url('zone/'. $item->id) }}" method="POST">
+                            <form action="{{ url('user/'. $item->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 
-                                <a class="btn btn-info" href="{{ url('zone/'. $item->id) }}">
+                                <a class="btn btn-info" href="{{ url('user/'. $item->id) }}">
                                     <i class="fas fa-eye"></i>
                                 </a>
 
-                                <a class="btn btn-primary" href="{{ url('zone/'. $item->id .'/edit') }}">
+                                <a class="btn btn-primary" href="{{ url('user/'. $item->id .'/edit') }}">
                                     <i class="fas fa-edit"></i>
                                 </a>
 

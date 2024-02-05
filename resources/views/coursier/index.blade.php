@@ -8,7 +8,7 @@
 
                 <div class="col-lg-11">
 
-                    <h2>Gestion des coursiers</h2>
+                    <h2>GESTION DES COURSIERS</h2>
 
                 </div>
 
@@ -79,15 +79,15 @@
                                 @method('DELETE')
 
                                 <a class="btn btn-info btn-sm" href="{{ url('coursier/'. $coursier->id) }}">
-                                        Voir
+
                                 </a>
 
                                 <a class="btn btn-primary btn-sm" href="{{ url('coursier/'. $coursier->id .'/edit') }}">
-                                    Modifier
+
                                 </a>
 
                                 <button type="submit" class="btn btn-danger btn-sm">
-                                    Supprimer
+
                                 </button>
 
                             </form>

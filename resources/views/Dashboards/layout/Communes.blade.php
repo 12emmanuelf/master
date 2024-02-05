@@ -58,11 +58,6 @@
             Clients
           </a>
 
-          <a class="collapse-item" href="{{route('Dossier.index')}}">
-            <i class="fas fa-folder" style="color: #007bff;"></i>
-            Dossier
-          </a>
-
           <a class="collapse-item" href="coursier.index">
             <i class="fas fa-fw fa-truck" style="color: #007bff;"></i>
             Coursiers
@@ -119,12 +114,18 @@
 
     <hr class="sidebar-divider">
     <li class="nav-item">
-      <a class="nav-link">
-        <i class="fas fa-fw fa-user"></i>
-        <span>Utilisateurs</a></span>
-      </a>
-    </li>
+        <a class="nav-link" href="{{route('user.index')}}">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Utilisateurs</span>
+        </a>
+      </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('Dossier.index')}}">
+          <i class="fas fa-folder" ></i>
+          <span>Dossiers</span>
+        </a>
+      </li>
 
   </ul>
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -12,6 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
+
         $users = User::all();
         return view('user.index', compact('users'));
     }
@@ -21,6 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $roles = Role::all();
         return view('user.create');
     }
 
@@ -30,20 +34,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom'=>'required',
-            'prenom'=>'required',
+            'name'=>'required',
             'email' => 'required',
             'password' => 'required',
         ]);
 
 
         $user = new user([
-            'nom' => $request->get('nom'),
-            'prenom' => $request->get('prenom'),
-            'email' => $request->get('email'),
-            'password' => $request->get('password'),
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
 
         ]);
+        $user = User::create($request->all());
+        $user->assignRole($request->input('role'));
         $user->save();
         return redirect('/user.index')->with('success', 'utilisateur Ajouté avec succès');
     }
@@ -75,15 +79,13 @@ class UserController extends Controller
     {
         $request->validate([
 
-            'nom'=>'required',
-            'prenom'=> 'required',
+            'name'=>'required',
             'email'=> 'required',
             'password'=> 'password',
         ]);
 
         $user = user::findOrFail($id);
-        $user->nom = $request->get('nom');
-        $user->prenom = $request->get('prenom ');
+        $user->name = $request->get('name');
         $user->email = $request->get('email');
         $user->password = $request->get('password');
 

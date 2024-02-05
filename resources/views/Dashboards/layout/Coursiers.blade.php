@@ -119,19 +119,18 @@
 
     <hr class="sidebar-divider">
     <li class="nav-item">
-      <a class="nav-link">
-        <i class="fas fa-fw fa-user"></i>
-        <span>Utilisateurs</a></span>
-      </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('Dossier.index')}}">
-          <i class="fas fa-fw fa-folder"></i> <!-- Ajout de l'icône de dossier -->
-          <span>Dossiers</span>
+        <a class="nav-link" href="{{route('user.index')}}">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Utilisateurs</span>
         </a>
       </li>
 
-
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('Dossier.index')}}">
+          <i class="fas fa-folder" ></i>
+          <span>Dossiers</span>
+        </a>
+      </li>
   </ul>
 
     <!-- Sidebar -->

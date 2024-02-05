@@ -9,7 +9,7 @@
 
                 <div class="col-lg-11">
 
-                    <h1 style="font-weight: bold;">Gestion des Clients</h1>
+                    <h1 style="font-weight: bold;">GESTION DES CLIENTS</h1>
 
                 </div>
 
@@ -62,15 +62,15 @@
                                 @method('DELETE')
 
                                 <a class="btn btn-info" href="{{ url('client/'. $item->id) }}">
-                                    <i class="fas fa-eye"></i> Voir
+                                    <i class="fas fa-eye"></i>
                                 </a>
 
                                 <a class="btn btn-primary" href="{{ url('client/'. $item->id .'/edit') }}">
-                                    <i class="fas fa-edit"></i> Éditer
+                                    <i class="fas fa-edit"></i>
                                 </a>
 
                                 <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i> Supprimer
+                                    <i class="fas fa-trash"></i>
                                 </button>
 
                             </form>

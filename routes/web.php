@@ -1,7 +1,9 @@
 <?php
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZoneController;
+use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\ColisController;
 use App\Http\Controllers\VilleController;
 use App\Http\Controllers\ClientController;
@@ -25,6 +27,37 @@ use App\Http\Controllers\SinistreController;
 */
 
 Route::get('/', function () {
+
+    // // Création des rôles
+    // $createAdmin = Role::create(['name' => 'Administrateur']);
+    // $createModer = Role::create(['name' => 'Moderateur']);
+    // $createEmp = Role::create(['name' => 'Employer']);
+
+    // // Création des permissions
+    // $permHelloworld = Permission::create(['name' => 'see hello world']);
+    // $permGoodbye = Permission::create(['name' => 'see good bye']);
+    // $permGood = Permission::create(['name' => 'good']);
+
+    // // Assignation des permissions aux rôles
+    // $RoleAdmin = Role::findByName('Administrateur');
+    // $RoleAdmin->givePermissionTo('see hello world');
+    // $RoleAdmin->givePermissionTo('see good bye');
+    // $RoleAdmin->givePermissionTo('good');
+
+    // $RoleModer = Role::findByName('Moderateur');
+    // $RoleModer->givePermissionTo('see good bye');
+    // $RoleModer->givePermissionTo('good');
+
+    // $RoleEmp = Role::findByName('Employer');
+    // $RoleEmp->givePermissionTo('good');
+
+    // // Affichage des rôles
+    // dump($RoleAdmin);
+    // dump($RoleModer);
+    // dump($RoleEmp);
+
+
+
     return view('welcome');
 });
 
