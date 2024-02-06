@@ -37,7 +37,12 @@
 
                 <div class="form-group mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" id="description" rows="3"></textarea>
+                    <textarea class="form-control" id="description" rows="3" value="{{ $contrat->description }}"></textarea>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="durer" class="form-label">Durée en mois</label>
+                    <input type="number" class="form-control" id="durer" name="durer" value="{{ $contrat->durer }}">
                 </div>
 
                 <div class="form-group mb-3">

@@ -31,19 +31,28 @@
             <td>{{ $client->secteur_activité}}</td>
         </tr>
 
+
+        {{-- <tr>
+            <th style="color: #007bff;">Commune :</th>
+            <td>{{ $zone->commune->nom }}</td>
+        </tr> --}}
+
+
         <tr>
             <th style="color: #007bff;">Quartier:</th>
             <td>{{ $client->zone->nom }}</td>
         </tr>
 
-        <tr>
-            <th style="color: #007bff;">Commune :</th>
-            <td>{{($client->commune_id)}}</td>
-        </tr>
+
 
         <tr>
             <th style="color: #007bff;">Contrat:</th>
             <td>{{ $client->contrat->type }}</td>
+        </tr>
+
+        <tr>
+            <th style="color: #007bff;">Durer de contrat:</th>
+            <td>{{ $client->contrat->durer }}</td>
         </tr>
 
     </table>

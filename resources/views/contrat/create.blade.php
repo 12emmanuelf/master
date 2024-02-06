@@ -34,6 +34,11 @@
     </div>
 
     <div class="form-group mb-3">
+        <label for="durer" class="form-label">Durée en mois</label>
+        <input type="number" class="form-control" id="durer" name="durer">
+    </div>
+
+    <div class="form-group mb-3">
         <label for="client_id" style="color: #007bff;">Client :</label>
         <select class="form-control" id="client_id" name="client_id">
             <option >Sélectionnez une Client</option>

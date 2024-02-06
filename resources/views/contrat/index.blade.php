@@ -39,6 +39,7 @@
                     <th>No</th>
                     <th>Type</th>
                     <th>Description</th>
+                    <th>Durer</th>
                     <th>Client</th>
                     <th>Actions</th>
 
@@ -50,6 +51,7 @@
                         <td>{{ $loop->iteration}}</td>
                         <td>{{ $item->type }}</td>
                         <td>{{ $item->description}}</td>
+                        <td>{{ $item->durer}}</td>
                         <td>{{ $item->client->nom}}</td>
                         <td>
 

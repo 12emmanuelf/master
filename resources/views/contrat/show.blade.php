@@ -19,6 +19,13 @@
 
         </tr>
 
+        <tr>
+
+            <th style="color: #007bff;">Durée en mois:</th>
+            <td>{{ $contrat->durer }}</td>
+
+        </tr>
+
 
         <tr>
             <th style="color: #007bff;">Client:</th>

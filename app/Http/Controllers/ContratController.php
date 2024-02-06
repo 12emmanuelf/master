@@ -26,6 +26,7 @@ class ContratController extends Controller
         $request->validate([
             'type' => 'required',
             'description' => 'required',
+            'durer' => 'required',
             'client_id' => 'required'
         ]);
 
@@ -36,6 +37,7 @@ class ContratController extends Controller
                 $contrat = new Contrat;
                 $contrat->type = $request->get('type');
                 $contrat->description = $request->get('description');
+                $contrat->durer = $request->get('durer');
                 $contrat->client_id = $client->id;
                 $contrat->save();
 
@@ -66,6 +68,7 @@ class ContratController extends Controller
         $request->validate([
             'type' => 'required',
             'description' => 'required',
+            'durer' => 'required',
             'client_id' => 'required'
         ]);
 
@@ -76,6 +79,7 @@ class ContratController extends Controller
         if ($client) {
             $contrat->type = $request->get('type');
             $contrat->description = $request->get('description');
+            $contrat->durer = $request->get('durer');
             $contrat->client_id = $client->id;
             $contrat->update();
 

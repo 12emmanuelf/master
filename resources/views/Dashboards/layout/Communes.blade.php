@@ -83,21 +83,17 @@
             Sinistre
           </a>
 
-         <a class="collapse-item" href="{{route('zone.index')}}">
+          <a class="collapse-item" href="{{route('zone.index')}}">
             <i class="fas fa-fw fa-map-marker" style="color: #007bff;"></i>
             Zone
           </a>
 
-         <a class="collapse-item" href="historique-colis">
-            <i class="fas fa-fw fa-history" style="color: #007bff;"></i>
-            Historique des Colis
-         </a>
+          <a class="collapse-item" href="#">
+            <i class="fas fa-fw fa-file" style="color: #007bff;"></i>
+            Bordereau
+        </a>
 
 
-         <a class="collapse-item" href="problemes-livraison">
-            <i class="fas fa-fw fa-exclamation-triangle" style="color: #007bff;"></i>
-            Problèmes de Livraison
-          </a>
         </div>
       </div>
     </li>
