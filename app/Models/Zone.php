@@ -18,7 +18,7 @@ class Zone extends Model
 
     public function commune()
     {
-        return $this->hasmany(Commune::class);
+        return $this->belongsTo(Commune::class);
 
     }
     public function coursier()

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('telephone');
+            $table->string('secteur_activité');
             $table->string('email')->unique();
             $table->unsignedBigInteger('zone_id');
             $table->foreign('zone_id')->references('id') ->on('zones')->onDelete('cascade');

@@ -41,6 +41,7 @@
                     <th>Prenom</th>
                     <th>Telephone</th>
                     <th>Email</th>
+                    <th>Secteur d'activité</th>
                     <th>Zone</th>
                     <th>Actions</th>
 
@@ -54,8 +55,10 @@
                         <td>{{ $item->prenom}}</td>
                         <td>{{ $item->telephone}}</td>
                         <td>{{ $item->email }}</td>
-                        <td>{{ $item->zone_id }}</td>
+                        <td>{{ $item->secteur_activité }}</td>
+                        <td>{{ $item->zone->nom }}</td>
                         <td>
+
 
                             <form action="{{ url('client/'. $item->id) }}" method="POST">
                                 @csrf

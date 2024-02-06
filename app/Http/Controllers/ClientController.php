@@ -35,6 +35,7 @@ class ClientController extends Controller
                 'prenom' => 'required',
                 'telephone' => 'required',
                 'email' => 'required',
+                'secteur_activité' => 'required',
                 'zone_id' =>'required',
             ]);
 
@@ -47,6 +48,7 @@ class ClientController extends Controller
                 $client -> prenom = $request->get('prenom');
                 $client-> telephone = $request->get('telephone');
                 $client-> email =  $request->get('email');
+                $client-> secteur_activité =  $request->get('secteur_activité');
                 $client-> zone_id = $zone ->id;
 
                 $client->save();
@@ -82,6 +84,7 @@ class ClientController extends Controller
             'prenom' => 'required',
             'telephone' => 'required',
             'email' => 'required',
+            'secteur_activité' => 'required',
             'zone_id'=> 'required'
         ]);
 
@@ -94,6 +97,7 @@ class ClientController extends Controller
             $client -> prenom = $request->get('prenom');
             $client-> telephone = $request->get('telephone');
             $client-> email =  $request->get('email');
+            $client-> secteur_activité =  $request->get('secteur_activité');
             $client-> zone_id = $zone ->id;
 
             $client->update();

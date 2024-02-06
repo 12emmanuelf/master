@@ -48,7 +48,7 @@
                     <tr>
                         <td>{{ $loop->iteration}}</td>
                         <td>{{ $item->nom }}</td>
-                        <td>{{ $item->commune_id }}</td>
+                        <td>{{ ($item->commune)->nom }}</td>
                         <td>
 
                             <form action="{{ url('zone/'. $item->id) }}" method="POST">

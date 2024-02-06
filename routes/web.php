@@ -194,6 +194,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/dossier', [DossierController::class,'store'])->name('Dossier.store');
     Route::patch('/dossier/{id}', [DossierController::class,'update'])->name('Dossier.update');
     Route::delete('/dossier/{id}', [DossierController::class,'destroy'])->name('Dossier.destroy');
+    Route::get('/Dossier.texte', [DossierController::class,'texte'])->name('Dossier.texte');
 
 });
 

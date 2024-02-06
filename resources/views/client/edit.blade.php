@@ -58,6 +58,13 @@
                 </div>
 
                 <div class="form-group mb-3">
+
+                    <label for="secteur_activité"  style="color: #007bff;">Secteur d'activité:</label>
+                    <input type="text" class="form-control" id="secteur_activité" placeholder="secteur d'activité" name="secteur_activité" value="{{ $client->secteur_activité }}">
+
+                </div>
+
+                <div class="form-group mb-3">
                     <label for="zone_id" style="color: #007bff;">Zone :</label>
                     <select class="form-control" id="zone_id" name="zone_id" >
                         <option >Sélectionnez une Zone</option>
