@@ -47,8 +47,8 @@
         </tr>
 
         <tr>
-            <th style="color: #007bff;">statut:</th>
-            <td>{{ $coursier->statut }}</td>
+            <th style="color: #007bff;">Zone:</th>
+            <td>{{ $coursier->zone->nom}}</td>
         </tr>
 
         <tr>

@@ -46,7 +46,7 @@
                     <th>Numero_telephone_2</th>
                     <th>Numero_Permis_Conduire</th>
                     <th>Salaire</th>
-                    <th>Statut</th>
+                    <th>Zone</th>
                     <th>CNI</th>
                     <th>Type_Vehicule</th>
                     <th>Photo </th>
@@ -56,38 +56,39 @@
 
                 </tr>
 
-                @foreach ($coursiers as $index => $coursier)
+                @foreach ($coursiers as $item)
 
                     <tr>
-                        <td>{{ $index }}</td>
-                        <td>{{ $coursier->nom }}</td>
-                        <td>{{ $coursier->prenom}}</td>
-                        <td>{{ $coursier->numero_telephone}}</td>
-                        <td>{{ $coursier->numero_telephone_2}}</td>
-                        <td>{{ $coursier->numero_permis_conduire}}</td>
-                        <td>{{ $coursier->salaire}}</td>
-                        <td>{{ $coursier->statut }}</td>
-                        <td>{{ $coursier->cni }}</td>
-                        <td>{{ $coursier->type_vehicule }}</td>
-                        <td>{{ $coursier->photo }}</td>
-                        <td>{{ $coursier->email}}</td>
-                        <td>{{ $coursier->plaque_immatriculation }}</td>
+                        <td>{{ $loop->iteration}}</td>
+                        <td>{{ $item->nom}}</td>
+                        <td>{{ $item->prenom}}</td>
+                        <td>{{ $item->numero_telephone}}</td>
+                        <td>{{ $item->numero_telephone_2}}</td>
+                        <td>{{ $item->numero_permis_conduire}}</td>
+                        <td>{{ $item->salaire}}</td>
+                        <td>{{ $item->zone->nom}}</td>
+                        <td>{{ $item->cni }}</td>
+                        <td>{{ $item->type_vehicule }}</td>
+                        <td>{{ $item->photo }}</td>
+                        <td>{{ $item->email}}</td>
+                        <td>{{ $item->plaque_immatriculation }}</td>
                         <td>
 
-                            <form action="{{ url('coursier/'. $coursier->id) }}" method="POST">
+
+                            <form action="{{ url('coursier/'. $item->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 
-                                <a class="btn btn-info btn-sm" href="{{ url('coursier/'. $coursier->id) }}">
-
+                                <a class="btn btn-info" href="{{ url('coursier/'. $item->id) }}">
+                                    <i class="fas fa-eye"></i>
                                 </a>
 
-                                <a class="btn btn-primary btn-sm" href="{{ url('coursier/'. $coursier->id .'/edit') }}">
-
+                                <a class="btn btn-primary" href="{{ url('coursier/'. $item->id .'/edit') }}">
+                                    <i class="fas fa-edit"></i>
                                 </a>
 
-                                <button type="submit" class="btn btn-danger btn-sm">
-
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
                                 </button>
 
                             </form>

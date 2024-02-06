@@ -111,15 +111,15 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/coursier.index', [CoursierController::class,'index']);
-    Route::get('/coursier/create', [CoursierController::class,'create']);
-    Route::get('/coursier/{id}', [CoursierController::class,'show']);
-    Route::get('/coursier/{id}/edit', [CoursierController::class,'edit']);
+    Route::get('/coursier.index', [CoursierController::class,'index'])->name('coursier.index');
+    Route::get('/coursier/create', [CoursierController::class,'create'])->name('coursier.create');
+    Route::get('/coursier/{id}', [CoursierController::class,'show'])->name('coursier.show');
+    Route::get('/coursier/{id}/edit', [CoursierController::class,'edit'])->name('coursier.edit');
 
 
-    Route::post('/coursier', [CoursierController::class,'store']);
-    Route::patch('/coursier/{id}', [CoursierController::class,'update']);
-    Route::delete('/coursier/{id}', [CoursierController::class,'destroy']);
+    Route::post('/coursier', [CoursierController::class,'store'])->name('coursier.store');
+    Route::patch('/coursier/{id}', [CoursierController::class,'update'])->name('coursier.update');
+    Route::delete('/coursier/{id}', [CoursierController::class,'destroy'])->name('coursier.destroy');
 
 });
 

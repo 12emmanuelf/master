@@ -23,13 +23,10 @@ return new class extends Migration
             $table->enum('type_vehicule', ['vélo', 'moto', 'voiture', 'autre']);
             $table->string('cni');
             $table->string('photo')->nullable();
-            $table->enum('statut', [ 'actif', 'inactif']);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->unsignedBigInteger('zones_id');
-            $table->foreign('zones_id')->references('id') ->on('zones')->onDelete('cascade');
-            $table->unsignedBigInteger('sinistre_id');
-            $table->foreign('sinistre_id')->references('id') ->on('sinistres')->onDelete('cascade');
+            $table->unsignedBigInteger('zone_id');
+            $table->foreign('zone_id')->references('id') ->on('zones')->onDelete('cascade');
             $table->timestamps();
         });
 
@@ -42,7 +39,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('coursiers', function (Blueprint $table) {
-            $table->foreignId(['zones_id','sinistre_id']);
+            $table->foreignId('zone_id');
 
         });
         Schema::dropIfExists('coursiers');

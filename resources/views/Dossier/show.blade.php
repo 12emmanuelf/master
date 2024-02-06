@@ -38,7 +38,7 @@
 
         <tr>
             <th style="color: #007bff;">Commune :</th>
-            <td>{{ $client->commune ? $client->commune->nom}}</td>
+            <td>{{($client->commune_id)}}</td>
         </tr>
 
         <tr>

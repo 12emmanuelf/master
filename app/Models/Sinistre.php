@@ -14,9 +14,9 @@ class Sinistre extends Model
         'statut'
     ];
 
-    public function coursier()
-    {
-        return $this->hasmany(Coursier::class);
+    // public function coursier()
+    // {
+    //     return $this->hasmany(Coursier::class);
 
-    }
+    // }
 }

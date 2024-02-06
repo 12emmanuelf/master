@@ -73,23 +73,24 @@
             </div>
         </div>
 
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group mb-3">
-                    <label for="statut_activite" class="text-gray" style="color: #007bff;">Statut :</label>
-                    <select class="form-control" id="statut_activite" name="statut_activite" value={{ $coursier->statut_activite}}>
-                        <option value="">Sélectionnez</option>
-                        <option value="actif">Actif</option>
-                        <option value="inactif">Inactif</option>
+                    <label for="zone_id" style="color: #007bff;">Zone :</label>
+                    <select class="form-control" id="zone_id" name="zone_id" value={{ $coursier->zone_id}}>
+                        <option >Sélectionnez une Zone</option>
+                        @foreach($zones as $zone)
+                            <option value="{{ $zone->id }}">{{ $zone->nom }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group mb-3">
-                    <label for="cni" class="text-gray" style="color: #007bff;">CNI:</label>
-                    <input type="text" class="form-control" id="cni" name="cni" value={{ $coursier->cni}}>
-
-                </div>
+                     <label for="cni" class="text-gray" style="color: #007bff;">CNI:</label>
+                     <input type="text" class="form-control" id="cni" name="cni" name="prenom" value={{ $coursier->cni}}>
+                 </div>
             </div>
         </div>
 
@@ -99,7 +100,7 @@
                     <label for="type_vehicule" class="text-gray" style="color: #007bff;">Type de véhicule :</label>
                     <select class="form-control" id="type_vehicule" name="type_vehicule" value={{ $coursier->type_vehicule}}>
                         <option value="">Sélectionnez</option>
-                        <option value="velo">Vélo</option>
+                        <option value="vélo">Vélo</option>
                         <option value="moto">Moto</option>
                         <option value="voiture">Voiture</option>
                         <option value="autre">Autre</option>

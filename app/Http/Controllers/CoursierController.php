@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Zone;
 use App\Models\Coursier;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,9 @@ class CoursierController extends Controller
      */
     public function create()
     {
-        return view('coursier.create');
+          $coursiers= Coursier ::all();
+          $zones= Zone ::all();
+        return view('coursier.create',compact('coursiers','zones'));
     }
 
     /**
@@ -35,30 +38,37 @@ class CoursierController extends Controller
             'numero_telephone' => 'required',
             'numero_permis_conduire' => 'required',
             'salaire' => 'required',
+            'zone_id' => 'required',
             'cni' => 'required',
             'type_vehicule' => 'required',
             'photo' => 'required',
             'email' => 'required',
             'plaque_immatriculation' => 'required',
         ]);
+        $zoneId = $request->get('zone_id');
+        $zone = Zone::find($zoneId);
 
-        $coursier = new coursier([
-            'nom' => $request->get('nom'),
-            'prenom' => $request->get('prenom'),
-            'numero_telephone' => $request->get('numero_telephone'),
-            'numero_permis_conduire' => $request->get('numero_permis_conduire'),
-            'salaire' => $request->get('salaire'),
-            'cni' => $request->get('cni'),
-            'type_vehicule' => $request->get('type_vehicule'),
-            'photo' => $request->get('photo'),
-            'email' => $request->get('email'),
-            'plaque_immatriculation' => $request->get('plaque_immatriculation'),
+        if  ($zone){
+            $coursier = new coursier;
+                $coursier->nom = $request->get('nom');
+                $coursier->prenom = $request->get('prenom');
+                $coursier->numero_telephone = $request->get('numero_telephone');
+                $coursier->numero_permis_conduire = $request->get('numero_permis_conduire');
+                $coursier->salaire = $request->get('salaire');
+                $coursier->zone_id = $zone->id;
+                $coursier->cni = $request->get('cni');
+                $coursier->type_vehicule = $request->get('type_vehicule');
+                $coursier->photo = $request->get('photo');
+                $coursier->email = $request->get('email');
+                $coursier->plaque_immatriculation = $request->get('plaque_immatriculation');
+                $coursier->save();
 
 
-        ]);
 
-        $coursier->save();
-        return redirect('/coursier.index')->with('success', 'coursier Ajouté avec succès');
+                return redirect()->route('coursier.index')->with('success', 'Coursier ajoutée avec succès');
+            } else {
+                return redirect()->back()->with('error', 'La zone spécifiée n\'a pas été trouvée.');
+            }
     }
 
     /**
@@ -66,7 +76,8 @@ class CoursierController extends Controller
      */
     public function show($id)
     {
-        $coursier = coursier::findOrFail($id);
+        $coursier = Coursier::find($id);
+        $zones = Zone::find($coursier->zone_id);
         return view('coursier.show',compact('coursier'));
     }
 
@@ -76,8 +87,10 @@ class CoursierController extends Controller
     public function edit($id)
     {
         $coursier = Coursier::findOrFail($id);
+        $coursiers = Coursier::all();
+        $zones = Zone::all();
 
-        return view('coursier.edit', compact('coursier'));
+        return view('coursier.edit', compact('coursier','zones','coursiers'));
     }
 
     /**
@@ -91,28 +104,37 @@ class CoursierController extends Controller
             'numero_telephone' => 'required',
             'numero_permis_conduire' => 'required',
             'salaire' => 'required',
+            'zone_id' => 'required',
             'cni' => 'required',
             'type_vehicule' => 'required',
             'photo' => 'required',
             'email' => 'required',
             'plaque_immatriculation' => 'required',
-
         ]);
 
-        $coursier = coursier ::findOrFail($id);
-        $coursier ->nom = $request->get('nom');
-        $coursier ->prenom = $request->get('prenom');
-        $coursier ->numero_telephone = $request->get('numero_telephone');
-        $coursier ->numero_permis_conduire = $request->get('numero_permis_conduire');
-        $coursier ->salaire = $request->get('salaire');
-        $coursier ->cni = $request->get('cni');
-        $coursier ->type_vehicule = $request->get('type_vehicule');
-        $coursier ->photo = $request->get('photo');
-        $coursier ->email = $request->get('email');
-        $coursier ->plaque_immatriculation = $request->get('plaque_immatriculation');
-      $coursier->update();
+        $zoneId = $request->get('zone_id');
+        $zone = Zone::find($zoneId);
+        $coursier = Coursier::findOrFail($id);
 
-    return redirect('/coursier.index')->with('success', 'Coursier modifié avec succès');
+        if ($zone) {
+            // Mise à jour des propriétés du coursier existant
+            $coursier->nom = $request->get('nom');
+            $coursier->prenom = $request->get('prenom');
+            $coursier->numero_telephone = $request->get('numero_telephone');
+            $coursier->numero_permis_conduire = $request->get('numero_permis_conduire');
+            $coursier->salaire = $request->get('salaire');
+            $coursier->zone_id = $zone->id;
+            $coursier->cni = $request->get('cni');
+            $coursier->type_vehicule = $request->get('type_vehicule');
+            $coursier->photo = $request->get('photo');
+            $coursier->email = $request->get('email');
+            $coursier->plaque_immatriculation = $request->get('plaque_immatriculation');
+            $coursier->save();
+
+            return redirect()->route('coursier.index')->with('success', 'Coursier modifié avec succès');
+        } else {
+            return redirect()->back()->with('error', 'La zone spécifiée n\'a pas été trouvée.');
+        }
     }
 
     /**

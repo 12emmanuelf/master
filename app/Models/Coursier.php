@@ -20,11 +20,11 @@ class Coursier extends Model
 
     }
 
-    public function sinistre()
-    {
-        return $this->belongsto(sinsitre::class);
+    // public function sinistre()
+    // {
+    //     return $this->belongsto(sinsitre::class);
 
-    }
+    // }
 
     public function livraison()
     {
