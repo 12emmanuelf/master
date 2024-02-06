@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('bordereaus', function (Blueprint $table) {
             $table->id();
-            $table->char('montantT');
-            $table->string('statut');
             $table->date('date');
             $table->unsignedBigInteger('coursier_id');
             $table->foreign('coursier_id')->references('id')->on('coursiers')->onDelete('cascade');
