@@ -21,7 +21,11 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\ClientCreated' => [
             'App\Listeners\CreateDossier',
-        ]
+        ],
+
+        'App\Events\BordereauCreated' => [
+            'App\Listeners\CreateLigneBordereau',
+        ],
     ];
 
     /**

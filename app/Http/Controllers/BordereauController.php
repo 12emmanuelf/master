@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Colis;
 use App\Models\Coursier;
-use Illuminate\Http\Request;
 use App\Models\Bordereau;
+use Illuminate\Http\Request;
 
 class BordereauController extends Controller
 {
@@ -17,9 +18,10 @@ class BordereauController extends Controller
 
     public function create()
     {
+        $colis = Colis::all();
         $bordereaus = Bordereau::all();
         $coursiers = Coursier::all();
-        return view('bordereau.create', compact('bordereaus','coursiers'));
+        return view('bordereau.create', compact('bordereaus','coursiers','colis'));
     }
 
     public function store(Request $request)
@@ -38,6 +40,7 @@ class BordereauController extends Controller
             $bordereau ->date = $request->get('date');
             $bordereau ->nom_des = $request->get('nom_des');
             $bordereau-> coursier_id = $coursier ->id;
+
 
             $bordereau->save();
 

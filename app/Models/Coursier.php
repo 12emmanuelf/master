@@ -34,7 +34,7 @@ class Coursier extends Model
 
     public function colis()
     {
-        return $this->belongsToMany(Colis::class, 'livraisons');
+        return $this->belongsToMany(Colis::class);
     }
 
     public function bordereau()

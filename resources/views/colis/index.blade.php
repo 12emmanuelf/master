@@ -21,12 +21,13 @@
 
 
 
+
             @if(session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
                     <script>
                         setTimeout(function(){
-                            window.location.href = '{{ url('/categorie.index') }}';
+                            window.location.href = '{{ url('/colis.index') }}';
                         }, {{ session('delay', 3) * 1000 }});
                     </script>
                 </div>

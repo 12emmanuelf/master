@@ -10,17 +10,18 @@ class Colis extends Model
     use HasFactory;
     protected $fillable = [
         'categorie',
-        'livraison_id',
+        'coursier_id',
+        'bordereau_id',
     ];
 
-    public function livraison()
-    {
-        return $this->belongsTo(Livraison::class);
-    }
+    // public function livraison()
+    // {
+    //     return $this->belongsTo(Livraison::class);
+    // }
 
     public function coursiers()
     {
-        return $this->belongsToMany(Coursier::class, 'livraisons');
+        return $this->belongsToMany(Coursier::class);
     }
 
     public function lbordereau()

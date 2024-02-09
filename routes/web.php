@@ -15,6 +15,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CoursierController;
 use App\Http\Controllers\SinistreController;
 use App\Http\Controllers\BordereauController;
+use App\Http\Controllers\LbordereauController;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,15 +128,15 @@ Route::middleware('auth')->group(function () {
 
 Route::controller(ColisController::class)->group(function () {
 
-    Route::get('/colis.index', [ColisController::class,'index']);
-    Route::get('/colis/create', [ColisController::class,'create']);
-    Route::get('/colis/{id}', [ColisController::class,'show']);
-    Route::get('/colis/{id}/edit', [ColisController::class,'edit']);
+    Route::get('/colis.index', [ColisController::class,'index'])->name('colis.index');
+    Route::get('/colis/create', [ColisController::class,'create'])->name('colis.create');
+    Route::get('/colis/{id}', [ColisController::class,'show'])->name('colis.show');
+    Route::get('/colis/{id}/edit', [ColisController::class,'edit'])->name('colis.edit');
 
 
-    Route::post('/colis', [ColisController::class,'store']);
-    Route::patch('/colis/{id}', [ColisController::class,'update']);
-    Route::delete('/colis/{id}', [ColisController::class,'destroy']);
+    Route::post('/colis', [ColisController::class,'store'])->name('colis.store');
+    Route::patch('/colis/{id}', [ColisController::class,'update'])->name('colis.update');
+    Route::delete('/colis/{id}', [ColisController::class,'destroy'])->name('colis.destroy');
 
 });
 
@@ -187,15 +188,15 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
 
     Route::get('/dossier.index',[DossierController::class,'index'])->name('Dossier.index');
-    Route::get('/dossier/create', [DossierController::class,'create'])->name('Dossier.create');
+    // Route::get('/dossier/create', [DossierController::class,'create'])->name('Dossier.create');
     Route::get('/dossier/{id}', [DossierController::class,'show'])->name('Dossier.show');
-    Route::get('/dossier/{id}/edit', [DossierController::class,'edit'])->name('ossier.edit');
+    // Route::get('/dossier/{id}/edit', [DossierController::class,'edit'])->name('ossier.edit');
 
 
-    Route::post('/dossier', [DossierController::class,'store'])->name('Dossier.store');
-    Route::patch('/dossier/{id}', [DossierController::class,'update'])->name('Dossier.update');
-    Route::delete('/dossier/{id}', [DossierController::class,'destroy'])->name('Dossier.destroy');
-    Route::get('/Dossier.texte', [DossierController::class,'texte'])->name('Dossier.texte');
+    // Route::post('/dossier', [DossierController::class,'store'])->name('Dossier.store');
+    // Route::patch('/dossier/{id}', [DossierController::class,'update'])->name('Dossier.update');
+    // Route::delete('/dossier/{id}', [DossierController::class,'destroy'])->name('Dossier.destroy');
+    // Route::get('/Dossier.texte', [DossierController::class,'texte'])->name('Dossier.texte');
 
 });
 
@@ -225,5 +226,19 @@ Route::middleware('auth')->group(function () {
     Route::post('/bordereau', [BordereauController::class,'store'])->name('bordereau.store');
     Route::patch('/bordereau/{id}', [BordereauController::class,'update'])->name('bordereau.update');
     Route::delete('/bordereau/{id}', [BordereauController::class,'destroy'])->name('bordereau.destroy');
+
+});
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/lbordereau.index',[LbordereauController::class,'index'])->name('lbordereau.index');
+    Route::get('/lbordereau/create', [LbordereauController::class,'create'])->name('lbordereau.create');
+    Route::get('/lbordereau/{id}', [LbordereauController::class,'show'])->name('lbordereau.show');
+    Route::get('/lbordereau/{id}/edit', [LbordereauController::class,'edit'])->name('lbordereau.edit');
+
+
+    Route::post('/lbordereau', [LbordereauController::class,'store'])->name('lbordereau.store');
+    Route::patch('/lbordereau/{id}', [LbordereauController::class,'update'])->name('lbordereau.update');
+    Route::delete('/lbordereau/{id}', [LbordereauController::class,'destroy'])->name('lbordereau.destroy');
 
 });

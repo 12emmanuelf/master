@@ -6,7 +6,7 @@
 <div class="dossier-container">
     @foreach($dossiers as $dossier)
         <div class="dossier-item">
-            <a href="{{ route('Dossier.show', ['id' => $dossier->id]) }}" class="access-link"><img src="{{ asset('img/dossier.jfif') }}" alt="Dossier Icon" class="dossier-icon"></a>
+            <a href="{{ route('client.show', ['id' => $dossier->id]) }}" class="access-link"><img src="{{ asset('img/dossier.jfif') }}" alt="Dossier Icon" class="dossier-icon"></a>
             <p class="Dossier-name">{{ $dossier->nom }}</p>
 
         </div>
