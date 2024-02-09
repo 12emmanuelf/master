@@ -9,14 +9,14 @@ class Bordereau extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'montantT',
-        'statut',
         'date',
+        'coursier_id',
+        'nom_des'
     ];
 
     public function lbordereau()
     {
-        return $this->belongsto(Lbordereau::class, );
+        return $this->hasMany(Lbordereau::class, );
     }
 
     public function coursier()

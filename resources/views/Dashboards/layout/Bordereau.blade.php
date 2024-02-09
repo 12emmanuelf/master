@@ -47,31 +47,52 @@
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
         aria-expanded="true" aria-controls="collapseBootstrap">
         <i class="far fa-fw fa-window-maximize"></i>
-        <span>Dossier</span>
+        <span>Pages</span>
 
       </a>
       <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Dossier</h6>
+          <h6 class="collapse-header">Pages</h6>
+          <a class="collapse-item" href="client.index">
+            <i class="fas fa-fw fa-users" style="color: #007bff;"></i>
+            Clients
+          </a>
 
+          <a class="collapse-item" href="coursier.index">
+            <i class="fas fa-fw fa-truck" style="color: #007bff;"></i>
+            Coursiers
+          </a>
+          <a class="collapse-item" href="colis.index">
+            <i class="fas fa-fw fa-box" style="color: #007bff;"></i>
+            Colis
+          </a>
 
-          <a class="collapse-item" href="#">
+         <a class="collapse-item" href="{{route('commune.index')}}">
+            <i i class="fas fa-fw fa-building" style="color: #007bff;"></i>
+            Commune
+          </a>
+
+          <a class="collapse-item" href="{{route('contrat.index')}}">
             <i class="fas fa-file-contract" style="color: #007bff;"></i>
-            Factures
+            Contrat
           </a>
 
 
-          <a class="collapse-item" href="bordereau.index">
+         <a class="collapse-item" href="{{route('sinistre.index')}}">
+            <i class="fas fa-exclamation-triangle" style="color: #007bff;"></i></i>
+            Sinistre
+          </a>
+
+         <a class="collapse-item" href="{{route('zone.index')}}">
+            <i class="fas fa-fw fa-map-marker" style="color: #007bff;"></i>
+            Zone
+          </a>
+
+          <a class="collapse-item" href="#">
             <i class="fas fa-fw fa-file" style="color: #007bff;"></i>
             Bordereau
         </a>
 
-
-
-         <a class="collapse-item" href="problemes-livraison">
-            <i class="fas fa-fw fa-exclamation-triangle" style="color: #007bff;"></i>
-            Problèmes de Livraison
-          </a>
         </div>
       </div>
     </li>
@@ -87,6 +108,19 @@
     </li>
 
     <hr class="sidebar-divider">
+    <li class="nav-item">
+      <a class="nav-link">
+        <i class="fas fa-fw fa-user" href="{{route('user.index')}}"></i>
+        <span>Utilisateurs</a></span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('Dossier.index')}}">
+          <i class="fas fa-folder" ></i>
+          <span>Dossiers</span>
+        </a>
+      </li>
 
 
   </ul>
@@ -291,16 +325,16 @@
                 {{-- @yield('Cli1')
                 <h1>bonjour</h1> --}}
             <div>
-                @yield('Do1')
+                @yield('Bod1')
             </div>
             <div>
-                @yield('Do2')
+                @yield('Bod2')
             </div>
             <div>
-                @yield('Do3')
+                @yield('Bod3')
             </div>
             <div>
-                @yield('Do4')
+                @yield('Bod4')
             </div>
 
 

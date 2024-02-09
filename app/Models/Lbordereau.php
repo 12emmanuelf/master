@@ -10,16 +10,22 @@ class Lbordereau extends Model
     use HasFactory;
     protected $fillable=[
         'prix',
-        'numero',
         'quantite',
-        'statut',
-        'facture_id'
+        'nom',
+        'bordereau_id',
+        'colis_id',
         ];
 
 
         public function bordereau()
         {
             return $this->belongsto(Bordereau::class);
+
+        }
+
+        public function colis()
+        {
+            return $this->belongsto(Colis::class);
 
         }
 

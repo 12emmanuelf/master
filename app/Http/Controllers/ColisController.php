@@ -16,49 +16,40 @@ class ColisController extends Controller
 
     public function create()
     {
-        return view('colis.create');
+        $colis = Colis::all();
+        return view('colis.create', compact('colis',));
     }
 
     public function store(Request $request)
     {
+        // dd(Ville::findOrFail($request->get('ville_id')));
+
+
+//dd($ville);
         $request->validate([
-            'destinataire' => 'required',
-            'adresse' => 'required',
-            'telephone' => 'required',
-            'reference' => 'required',
-            'nomC' => 'required',
+            'categorie' => 'required',
         ]);
 
-        // Vérifier si le coursier existe dans la base de données
-        $coursier = Coursier::where('nom', $request->nomC)->first();
-
-        if (!$coursier) {
-            // Le coursier n'existe pas, renvoie un message d'erreur
-            return redirect()->back()->withErrors(['nomC' => 'Le coursier n\'existe pas.']);
-        }
-
-        // Si le coursier existe, enregistrez le colis avec le nom du coursier
-        $colis = new Colis([
-            'destinataire' => $request->get('destinataire'),
-            'adresse' => $request->get('adresse'),
-            'telephone' => $request->get('telephone'),
-            'reference' => $request->get('reference'),
-            'nomC' => $coursier->nom,
+        $colis = new colis([
+            'categorie' => $request->get('categorie'),
         ]);
 
+        // dd( $commune);
         $colis->save();
+        return redirect()->route('colis.index')->with('success', 'Colis ajouté avec succès');
 
-        return redirect('/colis.index')->with('success', 'Colis ajouté avec succès');
     }
 
     public function show($id)
     {
         $colis = Colis::findOrFail($id);
+
         return view('colis.show', compact('colis'));
     }
 
     public function edit($id)
     {
+
         $colis = Colis::findOrFail($id);
         return view('colis.edit', compact('colis'));
     }
@@ -66,23 +57,16 @@ class ColisController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'destinataire' => 'required',
-            'adresse' => 'required',
-            'telephone' => 'required',
-            'reference' => 'required',
-            'nomC' => 'required',
+            'categorie' => 'required',
         ]);
 
         $colis = Colis::findOrFail($id);
-        $colis->destinataire = $request->get('destinataire');
-        $colis->adresse = $request->get('adresse');
-        $colis->telephone = $request->get('telephone');
-        $colis->reference = $request->get('reference');
-        $colis->nomC = $request->get('nomC');
+        $colis->categorie= $request->get('categorie');
+
 
         $colis->update();
 
-        return redirect('/colis.index')->with('success', 'Colis modifié avec succès');
+        return redirect()->route('colis.index')->with('success', 'Colis modifié avec succès');
     }
 
     public function destroy($id)
@@ -90,6 +74,7 @@ class ColisController extends Controller
         $colis = Colis::findOrFail($id);
         $colis->delete();
 
-        return redirect('/colis.index')->with('success', 'Colis supprimé avec succès');
+        return redirect()->route('colis.index')->with('success', 'Colis supprimé avec succès');
     }
+
 }

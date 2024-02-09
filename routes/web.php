@@ -14,6 +14,7 @@ use App\Http\Controllers\DossierController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CoursierController;
 use App\Http\Controllers\SinistreController;
+use App\Http\Controllers\BordereauController;
 
 /*
 |--------------------------------------------------------------------------
@@ -209,5 +210,20 @@ Route::middleware('auth')->group(function () {
     Route::post('/contrat', [ContratController::class,'store'])->name('contrat.store');
     Route::patch('/contrat/{id}', [ContratController::class,'update'])->name('contrat.update');
     Route::delete('/contrat/{id}', [ContratController::class,'destroy'])->name('contrat.destroy');
+
+});
+
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/bordereau.index',[BordereauController::class,'index'])->name('bordereau.index');
+    Route::get('/bordereau/create', [BordereauController::class,'create'])->name('bordereau.create');
+    Route::get('/bordereau/{id}', [BordereauController::class,'show'])->name('bordereau.show');
+    Route::get('/bordereau/{id}/edit', [BordereauController::class,'edit'])->name('bordereau.edit');
+
+
+    Route::post('/bordereau', [BordereauController::class,'store'])->name('bordereau.store');
+    Route::patch('/bordereau/{id}', [BordereauController::class,'update'])->name('bordereau.update');
+    Route::delete('/bordereau/{id}', [BordereauController::class,'destroy'])->name('bordereau.destroy');
 
 });

@@ -13,11 +13,7 @@ return new class extends Migration
     {
         Schema::create('colis', function (Blueprint $table) {
             $table->id();
-            $table->string('destinataire');
-            $table->string('adresse');
-            $table->string('telephone');
-            $table->string('reference');
-            $table->string('nom');
+            $table->string('categorie');
             $table->unsignedBigInteger('livraison_id');
             $table->foreign('livraison_id')->references('id')->on('livraisons')->onDelete('cascade');
             $table->timestamps();

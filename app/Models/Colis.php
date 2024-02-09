@@ -9,11 +9,7 @@ class Colis extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'destinataire',
-        'adresse',
-        'telephpne',
-        'reference',
-        'nom',
+        'categorie',
         'livraison_id',
     ];
 
@@ -25,5 +21,10 @@ class Colis extends Model
     public function coursiers()
     {
         return $this->belongsToMany(Coursier::class, 'livraisons');
+    }
+
+    public function lbordereau()
+    {
+        return $this->hasMany(Lbordereau::class);
     }
 }

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('bordereaus', function (Blueprint $table) {
             $table->id();
             $table->date('date');
+            $table->string('nom_des');
             $table->unsignedBigInteger('coursier_id');
             $table->foreign('coursier_id')->references('id')->on('coursiers')->onDelete('cascade');
             $table->timestamps();

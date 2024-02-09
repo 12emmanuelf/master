@@ -14,12 +14,11 @@ return new class extends Migration
         Schema::create('lbordereaus', function (Blueprint $table) {
             $table->id();
             $table->char('prix');
-            $table->char('numero');
             $table->char('quantite');
-            $table->string('statut');
-            $table->unsignedBigInteger('bordereaus_id');
+            $table->string('nom');
+            $table->unsignedBigInteger('bordereau_id');
             $table->unsignedBigInteger('colis_id');
-            $table->foreign('bordereaus_id')->references('id')->on('bordereaus')->onDelete('cascade');
+            $table->foreign('bordereau_id')->references('id')->on('bordereaus')->onDelete('cascade');
             $table->foreign('colis_id')->references('id')->on('colis')->onDelete('cascade');
 
             $table->timestamps();

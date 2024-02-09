@@ -1,4 +1,5 @@
 @extends('Dashboards.layout.Colis')
+
 @section('Col1')
 <div class="container-fluid" id="container-wrapper">
 
@@ -8,7 +9,7 @@
 
                 <div class="col-lg-11">
 
-                    <h1 style="font-weight: bold;">GESTIONS DES COLIS</h1>
+                    <h1 style="font-weight: bold;">GESTION DES COLIS</h1>
 
                 </div>
 
@@ -25,7 +26,7 @@
                     {{ session('success') }}
                     <script>
                         setTimeout(function(){
-                            window.location.href = '{{ url('/colis.index') }}';
+                            window.location.href = '{{ url('/categorie.index') }}';
                         }, {{ session('delay', 3) * 1000 }});
                     </script>
                 </div>
@@ -36,42 +37,35 @@
                 <tr>
 
                     <th>No</th>
-                    <th>Destinataire</th>
-                    <th>Adresse</th>
-                    <th>telephone</th>
-                    <th>reference</th>
-                    <th>nom du coursier</th>
+                    <th>Categorie</th>
                     <th>Actions</th>
 
                 </tr>
 
-                @foreach ($colis as $index => $colis)
+                @foreach ($colis as $item)
 
                     <tr>
-                        <td>{{ $index }}</td>
-                        <td>{{ $colis->Destinataire }}</td>
-                        <td>{{ $colis->adresse}}</td>
-                        <td>{{ $colis->telephone}}</td>
-                        <td>{{ $colis->lieu}}</td>
-                        <td>{{ $colis->reference}}</td>
-                        <td>{{ $colis->nomC}}</td>
+                        <td>{{ $loop->iteration}}</td>
+                        <td>{{ $item->categorie }}</td>
                         <td>
 
-                            <form action="{{ url('colis/'. $colis->id) }}" method="POST">
+                            <form action="{{ url('colis/'. $item->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 
-                                <a class="btn btn-info" href="{{ url('colis/'. $colis->id) }}">
+                                <a class="btn btn-info" href="{{ url('colis/'. $item->id) }}">
                                     <i class="fas fa-eye"></i>
                                 </a>
 
-                                <a class="btn btn-primary" href="{{ url('colis/'. $colis->id .'/edit') }}">
+                                <a class="btn btn-primary" href="{{ url('colis/'. $item->id .'/edit') }}">
                                     <i class="fas fa-edit"></i>
                                 </a>
 
                                 <button type="submit" class="btn btn-danger">
                                     <i class="fas fa-trash"></i>
                                 </button>
+
+
 
                             </form>
 
