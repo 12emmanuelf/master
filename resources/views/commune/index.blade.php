@@ -1,6 +1,6 @@
-@extends('Dashboards.layout.Communes')
+@extends('Dashboards.layout.app')
 
-@section('Co1')
+@section('contenu')
 <div class="container-fluid" id="container-wrapper">
 
 
@@ -53,20 +53,20 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <a class="btn btn-info" href="{{ url('commune/'. $item->id) }}">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-
-                                <a class="btn btn-primary" href="{{ url('commune/'. $item->id .'/edit') }}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button>
+                                <div class="btn-group btn-group-xxs" role="group" aria-label="Actions">
+                                    <a class="btn btn-info mr-2" href="{{ url('commune/'. $item->id) }}">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
 
 
 
+                                    <a class="btn btn-primary mr-2"  href="{{ url('commune/'. $item->id .'/edit') }}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete{{ $item->id }}">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
                             </form>
 
                         </td>

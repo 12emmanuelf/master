@@ -1,6 +1,6 @@
-@extends('Dashboards.layout.Colis')
+@extends('Dashboards.layout.app')
 
-@section('Col1')
+@section('contenu')
 <div class="container-fluid" id="container-wrapper">
 
 
@@ -54,20 +54,20 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <a class="btn btn-info" href="{{ url('colis/'. $item->id) }}">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-
-                                <a class="btn btn-primary" href="{{ url('colis/'. $item->id .'/edit') }}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button>
+                                <div class="btn-group btn-group-xxs" role="group" aria-label="Actions">
+                                    <a class="btn btn-info mr-2" href="{{ url('colis/'. $item->id) }}">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
 
 
 
+                                    <a class="btn btn-primary mr-2"  href="{{ url('colis/'. $item->id .'/edit') }}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete{{ $item->id }}">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
                             </form>
 
                         </td>

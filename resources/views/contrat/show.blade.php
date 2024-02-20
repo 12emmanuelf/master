@@ -1,6 +1,6 @@
 
-@extends('Dashboards.layout.Contrats')
-@section('Con4')
+@extends('Dashboards.layout.app')
+@section('contenu')
 
     <h1 class="text-center">CONTRAT</h1>
 

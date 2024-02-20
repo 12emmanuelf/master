@@ -1,6 +1,6 @@
 
-@extends("Dashboards.layout.coursiers")
-@section("Cou3")
+@extends("Dashboards.layout.app")
+@section("contenu")
 <div>
 
 

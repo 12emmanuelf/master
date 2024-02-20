@@ -68,10 +68,10 @@
             Zone
           </a>
 
-          <a class="collapse-item" href="#">
+          {{-- <a class="collapse-item" href="#">
             <i class="fas fa-fw fa-file" style="color: #007bff;"></i>
             Bordereau
-        </a>
+        </a> --}}
 
         </div>
       </div>

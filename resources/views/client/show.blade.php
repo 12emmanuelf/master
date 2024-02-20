@@ -1,6 +1,7 @@
 
-@extends('Dashboards.layout.Clients')
-@section('Cli4')
+@extends('Dashboards.layout.app')
+
+@section('contenu')
 
     <h1 class="text-center">CLIENT</h1>
 

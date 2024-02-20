@@ -1,5 +1,8 @@
 <?php
+use App\Livewire\Bordereau\CRUD;
+use App\Livewire\IndexBordereau;
 use Spatie\Permission\Models\Role;
+use App\Livewire\BordereauCompenent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZoneController;
@@ -215,30 +218,26 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::middleware('auth')->group(function () {
-
-    Route::get('/bordereau.index',[BordereauController::class,'index'])->name('bordereau.index');
-    Route::get('/bordereau/create', [BordereauController::class,'create'])->name('bordereau.create');
-    Route::get('/bordereau/{id}', [BordereauController::class,'show'])->name('bordereau.show');
-    Route::get('/bordereau/{id}/edit', [BordereauController::class,'edit'])->name('bordereau.edit');
-
-
-    Route::post('/bordereau', [BordereauController::class,'store'])->name('bordereau.store');
-    Route::patch('/bordereau/{id}', [BordereauController::class,'update'])->name('bordereau.update');
-    Route::delete('/bordereau/{id}', [BordereauController::class,'destroy'])->name('bordereau.destroy');
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/bordereau', CRUD::class)->name('bordereau.index');
+    Route::get('/bordereau/create', [CRUD::class, 'create'])->name('bordereau.create');
+    Route::post('/bordereau/store', [CRUD::class, 'store'])->name('bordereau.store');
+    Route::get('/bordereau/edit/{id}', [CRUD::class, 'edit'])->name('bordereau.edit');
+    Route::post('/bordereau/update/{id}', [CRUD::class, 'update'])->name('bordereau.update');
+    Route::get('/bordereau/delete/{id}', [CRUD::class, 'confirmBordereauDeletion'])->name('bordereau.delete.confirm');
+    Route::post('/bordereau/delete/{id}', [CRUD::class, 'deleteBordereau'])->name('bordereau.delete');
 });
 
-Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
 
-    Route::get('/lbordereau.index',[LbordereauController::class,'index'])->name('lbordereau.index');
-    Route::get('/lbordereau/create', [LbordereauController::class,'create'])->name('lbordereau.create');
-    Route::get('/lbordereau/{id}', [LbordereauController::class,'show'])->name('lbordereau.show');
-    Route::get('/lbordereau/{id}/edit', [LbordereauController::class,'edit'])->name('lbordereau.edit');
+//     Route::get('/lbordereau.index',[LbordereauController::class,'index'])->name('lbordereau.index');
+//     Route::get('/lbordereau/create', [LbordereauController::class,'create'])->name('lbordereau.create');
+//     Route::get('/lbordereau/{id}', [LbordereauController::class,'show'])->name('lbordereau.show');
+//     Route::get('/lbordereau/{id}/edit', [LbordereauController::class,'edit'])->name('lbordereau.edit');
 
 
-    Route::post('/lbordereau', [LbordereauController::class,'store'])->name('lbordereau.store');
-    Route::patch('/lbordereau/{id}', [LbordereauController::class,'update'])->name('lbordereau.update');
-    Route::delete('/lbordereau/{id}', [LbordereauController::class,'destroy'])->name('lbordereau.destroy');
+//     Route::post('/lbordereau', [LbordereauController::class,'store'])->name('lbordereau.store');
+//     Route::patch('/lbordereau/{id}', [LbordereauController::class,'update'])->name('lbordereau.update');
+//     Route::delete('/lbordereau/{id}', [LbordereauController::class,'destroy'])->name('lbordereau.destroy');
 
-});
+// });

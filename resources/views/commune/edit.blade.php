@@ -1,7 +1,7 @@
 
-@extends("Dashboards.layout.Communes")
+@extends("Dashboards.layout.app")
 
-@section("Co3")
+@section("contenu")
 <div>
 
 

@@ -1,6 +1,6 @@
-@extends('Dashboards.layout.Contrats')
+@extends('Dashboards.layout.app')
 
-@section('Con1')
+@section('contenu')
 <div class="container-fluid" id="container-wrapper">
 
 
@@ -59,18 +59,20 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <a class="btn btn-info" href="{{ url('contrat/'. $item->id) }}">
-                                    <i class="fas fa-eye"></i>
-                                </a>
+                                <div class="btn-group btn-group-xxs" role="group" aria-label="Actions">
+                                    <a class="btn btn-info mr-2" href="{{ url('contrat/'. $item->id) }}">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
 
-                                <a class="btn btn-primary" href="{{ url('contrat/'. $item->id .'/edit') }}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
 
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button>
 
+                                    <a class="btn btn-primary mr-2"  href="{{ url('contrat/'. $item->id .'/edit') }}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete{{ $item->id }}">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
                             </form>
 
                         </td>

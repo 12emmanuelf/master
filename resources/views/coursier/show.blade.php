@@ -1,5 +1,5 @@
-@extends('Dashboards.layout.coursiers')
-@section('Cou4')
+@extends('Dashboards.layout.app')
+@section('contenu')
 
     <h1 class='text-center'>COURSIER</h1>
 

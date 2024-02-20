@@ -14,6 +14,7 @@ use App\Events\ClientCreated;
 
 class ClientController extends Controller
 {
+
     public function index()
     {
 

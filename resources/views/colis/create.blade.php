@@ -1,5 +1,5 @@
-@extends('Dashboards.layout.Colis')
-@section('Col2')
+@extends('Dashboards.layout.app')
+@section('contenu')
 
 <div style="margin-left: 3%; font-weight: bold;">
 <h1 class="text-center">AJOUTER UN COLIS</h1>

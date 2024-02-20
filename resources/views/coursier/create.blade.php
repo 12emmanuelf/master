@@ -1,6 +1,6 @@
-@extends('Dashboards.layout.coursiers')
+@extends('Dashboards.layout.app')
 
-@section('Cou2')
+@section('contenu')
     <div>
             <h1 class="text-center">AJOUTER UN COURSIER</h1>
 

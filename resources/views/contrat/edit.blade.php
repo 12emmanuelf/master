@@ -1,7 +1,7 @@
 
-@extends("Dashboards.layout.Contrats")
+@extends("Dashboards.layout.app")
 
-@section("Con3")
+@section("contenu")
 <div>
 
 

@@ -1,5 +1,5 @@
-@extends('Dashboards.layout.Users')
-@section('Uti2')
+@extends('Dashboards.layout.app')
+@section('contenu')
 
 <div style="margin-left: 3%; font-weight: bold;">
     <h1 class="text-center">AJOUTER UN UTILISATEUR</h1>

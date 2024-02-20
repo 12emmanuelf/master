@@ -1,6 +1,6 @@
 
-@extends('Dashboards.layout.Users')
-@section('Uti4')
+@extends('Dashboards.layout.app')
+@section('contenu')
 
     <h1 class="text-center">Utilisateur</h1>
 

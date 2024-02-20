@@ -1,6 +1,6 @@
-@extends('Dashboards.layout.Users')
+@extends('Dashboards.layout.app')
 
-@section('Uti1')
+@section('contenu')
 <div class="container-fluid" id="container-wrapper">
 
 
@@ -39,7 +39,7 @@
                     <th>No</th>
                     <th>Nom</th>
                     <th>Email</th>
-                    <th>Password</th>
+                    {{-- <th>Password</th> --}}
                     <th>Actions</th>
 
                 </tr>
@@ -50,25 +50,27 @@
                         <td>{{ $loop->iteration}}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->email}}</td>
-                        <td>{{ $item->password}}</td>
+                        {{-- <td>{{ $item->password}}</td> --}}
                         <td>
 
                             <form action="{{ url('user/'. $item->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 
-                                <a class="btn btn-info" href="{{ url('user/'. $item->id) }}">
-                                    <i class="fas fa-eye"></i>
-                                </a>
+                                <div class="btn-group btn-group-xxs" role="group" aria-label="Actions">
+                                    <a class="btn btn-info mr-2" href="{{ url('user/'. $item->id) }}">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
 
-                                <a class="btn btn-primary" href="{{ url('user/'. $item->id .'/edit') }}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
 
-                                <button type="submit" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button>
 
+                                    <a class="btn btn-primary mr-2"  href="{{ url('user/'. $item->id .'/edit') }}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDelete{{ $item->id }}">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
                             </form>
 
                         </td>

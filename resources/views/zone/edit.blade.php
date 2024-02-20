@@ -1,7 +1,7 @@
 
-@extends("Dashboards.layout.Zones")
+@extends("Dashboards.layout.app")
 
-@section("Zo3")
+@section("contenu")
 <div>
 
 

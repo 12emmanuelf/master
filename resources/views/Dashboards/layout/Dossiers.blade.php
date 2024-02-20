@@ -61,7 +61,7 @@
           </a>
 
 
-          <a class="collapse-item" href="bordereau.index">
+          <a class="collapse-item" href="{{route('bordereau.index')}}">
             <i class="fas fa-fw fa-file" style="color: #007bff;"></i>
             Bordereau
         </a>

@@ -1,6 +1,6 @@
 
-@extends('Dashboards.layout.Colis')
-@section('Col4')
+@extends('Dashboards.layout.app')
+@section('contenu')
 
     <h1 class="text-center">COlis</h1>
 

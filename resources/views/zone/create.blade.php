@@ -1,5 +1,5 @@
-@extends('Dashboards.layout.Zones')
-@section('Zo2')
+@extends('Dashboards.layout.app')
+@section('contenu')
 
 <div style="margin-left: 3%; font-weight: bold;">
 <h1 class="text-center">AJOUTER UNE ZONE</h1>

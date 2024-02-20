@@ -1,6 +1,6 @@
 
-@extends("Dashboards.layout.Users")
-@section("Uti3")
+@extends("Dashboards.layout.app")
+@section("contenu")
 <div class="container mt-5">
 
 

@@ -1,6 +1,6 @@
 
-@extends('Dashboards.layout.Zones')
-@section('Zo4')
+@extends('Dashboards.layout.app')
+@section('contenu')
 
     <h1 class="text-center">ZONE</h1>
 

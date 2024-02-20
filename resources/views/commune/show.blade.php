@@ -1,6 +1,6 @@
 
-@extends('Dashboards.layout.Communes')
-@section('Co4')
+@extends('Dashboards.layout.app')
+@section('contenu')
 
     <h1 class="text-center">COMMUNE</h1>
 
